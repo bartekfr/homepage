@@ -16,7 +16,7 @@ $baseFontSize: 14px;
 	@return  $px/$baseFontSize * 1em;
 }
 
-/*Generic
+/*Generic styles
 ----------------------------------------------*/
 * {
 	@include box-sizing(border-box);
@@ -69,7 +69,7 @@ body {
 	margin-right: 30px;
 	a {
 		display: block;
-		padding: 5px 10px;
+		padding: 5px 15px;
 		border-radius: 5px;
 		color: #fff;
 		background-color: $blue;
@@ -80,9 +80,12 @@ body {
 }
 
 .main-menu {
-	padding: 10px 0;
-	@include horizontal-list(0, right);
+	@extend %clearfix;
+	float: right;
 
+	li {
+		@include horizontal-list-item(0);
+	}
 	a {
 		display: block;
 		padding: 10px 20px;
@@ -132,6 +135,9 @@ body {
 		height: 100px;
 		padding: 15px;
 		background: #000;
+		font-size: pxToEm(15px);
+		text-decoration: none;
+		font-weight: bold;
 		color: #fff;
 	}
 }
@@ -188,6 +194,7 @@ body {
 /*Import experiments css files
 ----------------------------------------------*/
 @import "_css3view";
+@import "_fileReading";
 
 
 
