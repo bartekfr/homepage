@@ -1,0 +1,193 @@
+@import "compass/reset";
+@import "compass/css3/box-sizing";
+@import "compass/typography/lists";
+
+
+
+/*Mixins and functions
+----------------------------------------------*/
+$blue: #7DB7F9;
+$baseFontSize: 14px;
+%clearfix {
+	@include pie-clearfix;
+}
+
+@function pxToEm($px) {
+	@return  $px/$baseFontSize * 1em;
+}
+
+/*Generic
+----------------------------------------------*/
+* {
+	@include box-sizing(border-box);
+}
+
+body {
+	background-color: $blue;
+}
+
+/*Typography
+----------------------------------------------*/
+body {
+	font-family: Arial, sans-serif;
+	font-size: $baseFontSize;
+	line-height: 1.2;
+}
+
+.title {
+	font-size: pxToEm(26px);
+}
+
+.main-footer {
+
+}
+
+
+/*Layout
+----------------------------------------------*/
+/*Header
+-----------*/
+.inner {
+	max-width: 1024px;
+	padding: 0 15px;
+	margin: auto;
+}
+
+.main-header,
+.main-footer {
+	color: #000;
+	@extend %clearfix;
+}
+
+.main-header {
+	height: 70px;
+	border-bottom: 10px solid darken($blue, 10%);
+}
+
+#logo  {
+	float: left;
+	margin-right: 30px;
+	a {
+		display: block;
+		padding: 5px 10px;
+		border-radius: 5px;
+		color: #fff;
+		background-color: $blue;
+		text-transform: uppercase;
+		text-align: center;
+		text-decoration: none;
+	}
+}
+
+.main-menu {
+	padding: 10px 0;
+	@include horizontal-list(0, right);
+
+	a {
+		display: block;
+		padding: 10px 20px;
+		height: 70px;
+		color: #fff;
+		font-size: 24px;
+		line-height: 40px;
+		text-shadow: 0 0 4px darken($blue, 20%);
+		text-decoration: none;
+		transition: background-color 1s, border-width 0.3s;
+
+		&:hover, &:focus {
+			background-color: darken($blue, 10%);
+			border-bottom: 10px solid lighten(#000, 20%);
+		}
+	}
+}
+
+/*Main
+-----------*/
+#main {
+	padding: 50px 0;
+	min-height: 200px;
+	background-color: #fff;
+}
+
+
+.content {
+	.title {
+		margin-bottom: 20px;
+	}
+	p {
+
+	}
+}
+
+.experiments  {
+	@extend %clearfix;
+	li {
+		float: left;
+		width: 25%;
+		padding: 10px;
+	}
+
+	a {
+		display: block;
+		height: 100px;
+		padding: 15px;
+		background: #000;
+		color: #fff;
+	}
+}
+
+.projects {
+	padding: 15px 0;
+	h2 {
+		padding-bottom: 10px;
+		font-size: pxToEm(16px);
+		font-weight: bold;
+	}
+
+	.projects-list {
+		a {
+			display: block;
+			padding: 10px;
+			color: #000;
+			text-decoration: none;
+
+		}
+		span {
+			display: none;
+		}
+	}
+}
+
+
+/*Footer
+-----------*/
+.main-footer {
+	border-top: 10px solid darken($blue, 10%);
+	padding: 10px;
+	color: #fff;
+	text-shadow: 0 0 4px darken($blue, 20%);
+	line-height: 1.3;
+
+	p {
+		padding: 10px 0;
+
+	}
+
+	a {
+		color: #fff;
+		font-weight: bold;
+		text-decoration: none;
+	}
+
+	ul {
+		@include horizontal-list;
+		padding: 5px 0;
+	}
+}
+
+/*Import experiments css files
+----------------------------------------------*/
+@import "_css3view";
+
+
+
