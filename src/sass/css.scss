@@ -1,5 +1,11 @@
+/**
+	author: Bartlomiej Fryzowicz
+	e-mail: bfryzowicz@gmail.com
+	All copyrights reserved
+**/
 @import "compass/reset";
 @import "compass/css3/box-sizing";
+@import "compass/css3/transform";
 @import "compass/typography/lists";
 
 
@@ -8,8 +14,18 @@
 ----------------------------------------------*/
 $blue: #7DB7F9;
 $baseFontSize: 14px;
+
+$tabletWidth: 768px;
+$phoneWidth: 470px;
+
 %clearfix {
 	@include pie-clearfix;
+}
+
+@mixin media($breakpoint) {
+	@media only screen and (min-width: $breakpoint) {
+		@content;
+	}
 }
 
 @function pxToEm($px) {
@@ -38,11 +54,6 @@ body {
 	font-size: pxToEm(26px);
 }
 
-.main-footer {
-
-}
-
-
 /*Layout
 ----------------------------------------------*/
 /*Header
@@ -66,7 +77,11 @@ body {
 
 #logo  {
 	float: left;
-	margin-right: 30px;
+	&:hover {
+		a {
+			@include transform(rotateY(360deg));
+		}
+	}
 	a {
 		display: block;
 		padding: 5px 15px;
@@ -76,22 +91,28 @@ body {
 		text-transform: uppercase;
 		text-align: center;
 		text-decoration: none;
+		transition: transform 1s ease-out;
 	}
 }
 
 .main-menu {
 	@extend %clearfix;
-	float: right;
 
-	li {
+	padding-left: 120px;
+
+	ul {
+		float: right;
+	}
+
+	.item {
 		@include horizontal-list-item(0);
 	}
-	a {
+	.item a {
 		display: block;
-		padding: 10px 20px;
+		padding: 10px 10px;
 		height: 70px;
 		color: #fff;
-		font-size: 24px;
+		font-size: 16px;
 		line-height: 40px;
 		text-shadow: 0 0 4px darken($blue, 20%);
 		text-decoration: none;
@@ -101,6 +122,13 @@ body {
 			background-color: darken($blue, 10%);
 			border-bottom: 10px solid lighten(#000, 20%);
 		}
+	}
+}
+
+@include media($phoneWidth) {
+	.main-menu .item a {
+		padding: 10px 20px;
+		font-size: 24px;
 	}
 }
 
@@ -125,9 +153,8 @@ body {
 .experiments  {
 	@extend %clearfix;
 	li {
-		float: left;
-		width: 25%;
-		padding: 10px;
+
+		padding: 20px;
 	}
 
 	a {
@@ -139,6 +166,14 @@ body {
 		text-decoration: none;
 		font-weight: bold;
 		color: #fff;
+	}
+}
+
+@include media($phoneWidth) {
+	.experiments li {
+		float: left;
+		width: 25%;
+		padding: 10px;
 	}
 }
 
@@ -195,6 +230,8 @@ body {
 ----------------------------------------------*/
 @import "_css3view";
 @import "_fileReading";
+@import "_rotator";
+@import "_tabs";
 
 
 

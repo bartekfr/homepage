@@ -1,0 +1,33 @@
+
+/* rotator
+----------------------------------------------------*/
+.gallery-section {
+	width: 900px;
+	margin: auto;
+	margin-bottom: 20px;
+	@include pie-clearfix;
+	img {
+		display: block;
+	}
+	li {
+		float: left;
+	}
+	.menu {
+		padding: 10px 0;
+		li {
+			padding: 0 5px 0 0;
+			font-size: 20px;
+
+			&.active {
+				color: #aaa;
+				font-weight: bold;
+				text-decoration: underline;
+			}
+			a {
+				color: #000;
+			}
+		}
+	}
+
+
+}

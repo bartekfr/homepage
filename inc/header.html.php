@@ -27,9 +27,9 @@
 					</h1>
 					<nav class="main-menu">
 						<ul >
-							<li><a href="experiments">Home</a></li>
-							<li><a href="projects">Projects</a></li>
-							<li><a href="experiments">Lab</a></li>
+							<li class="item"><a href="experiments">Home</a></li>
+							<li class="item"><a href="projects">Projects</a></li>
+							<li class="item"><a href="experiments">Lab</a></li>
 						</ul>
 					</nav>
 				</div>
