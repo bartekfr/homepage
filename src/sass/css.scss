@@ -8,6 +8,9 @@
 @import "compass/css3/transform";
 @import "compass/typography/lists";
 
+main {
+	display: block;
+}
 
 
 /*Mixins and functions
@@ -91,6 +94,7 @@ body {
 		text-transform: uppercase;
 		text-align: center;
 		text-decoration: none;
+		transition: -webkit-transform 1s ease-out;
 		transition: transform 1s ease-out;
 	}
 }
@@ -157,8 +161,13 @@ body {
 
 		padding: 20px;
 	}
-
-	a {
+	.link {
+		display: block;
+		text-decoration: none;
+ 		@include perspective(1000px);
+ 		@include transform-style(preserve-3d);
+	}
+	.name, .description {
 		display: block;
 		height: 100px;
 		padding: 15px;
@@ -167,6 +176,27 @@ body {
 		text-decoration: none;
 		font-weight: bold;
 		color: #fff;
+		transition: -webkit-transform 1s;
+		transition: transform 1s;
+	}
+	.name {
+		@include transform-origin(50%, 50%, -50px);
+		@include transform(rotateX(0deg));
+		background-color: lighten(#000, 30%);
+	}
+	.description {
+		@include transform-origin(50%, 50%, -50px);
+		@include transform(translateY(-100px)  rotateX(-90deg));
+	}
+
+	a:hover {
+		.name {
+			@include transform(rotateX(90deg));
+		}
+		.description {
+			@include transform(translateY(-100px)  rotateX(0) );
+		}
+
 	}
 }
 

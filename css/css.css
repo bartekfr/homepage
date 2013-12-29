@@ -59,6 +59,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
   display: block;
 }
 
+main {
+  display: block;
+}
+
 /*Mixins and functions
 ----------------------------------------------*/
 .main-header,
@@ -135,6 +139,7 @@ body {
   text-transform: uppercase;
   text-align: center;
   text-decoration: none;
+  transition: -webkit-transform 1s ease-out;
   transition: transform 1s ease-out;
 }
 
@@ -200,7 +205,21 @@ body {
 .experiments li {
   padding: 20px;
 }
-.experiments a {
+.experiments .link {
+  display: block;
+  text-decoration: none;
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.experiments .name, .experiments .description {
   display: block;
   height: 100px;
   padding: 15px;
@@ -209,6 +228,47 @@ body {
   text-decoration: none;
   font-weight: bold;
   color: #fff;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+}
+.experiments .name {
+  -webkit-transform-origin: 50% 50% -50px;
+  -moz-transform-origin: 50% 50% -50px;
+  -ms-transform-origin: 50% 50% -50px;
+  -o-transform-origin: 50% 50% -50px;
+  transform-origin: 50% 50% -50px;
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  background-color: #4d4d4d;
+}
+.experiments .description {
+  -webkit-transform-origin: 50% 50% -50px;
+  -moz-transform-origin: 50% 50% -50px;
+  -ms-transform-origin: 50% 50% -50px;
+  -o-transform-origin: 50% 50% -50px;
+  transform-origin: 50% 50% -50px;
+  -webkit-transform: translateY(-100px) rotateX(-90deg);
+  -moz-transform: translateY(-100px) rotateX(-90deg);
+  -ms-transform: translateY(-100px) rotateX(-90deg);
+  -o-transform: translateY(-100px) rotateX(-90deg);
+  transform: translateY(-100px) rotateX(-90deg);
+}
+.experiments a:hover .name {
+  -webkit-transform: rotateX(90deg);
+  -moz-transform: rotateX(90deg);
+  -ms-transform: rotateX(90deg);
+  -o-transform: rotateX(90deg);
+  transform: rotateX(90deg);
+}
+.experiments a:hover .description {
+  -webkit-transform: translateY(-100px) rotateX(0);
+  -moz-transform: translateY(-100px) rotateX(0);
+  -ms-transform: translateY(-100px) rotateX(0);
+  -o-transform: translateY(-100px) rotateX(0);
+  transform: translateY(-100px) rotateX(0);
 }
 
 @media only screen and (min-width: 470px) {
