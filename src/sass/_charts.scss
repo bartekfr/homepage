@@ -1,0 +1,65 @@
+/* chart
+-----------------------------------------------*/
+.excelTable {
+	border-collapse: collapse;
+	border: 1px solid #000;
+	margin: 10px 0;
+}
+
+.excelTable input[type="text"] {
+	height: 20px;
+	text-align: center;
+	background: none;
+	border: none;
+}
+
+.excelTable  input.active[type="text"] {
+	background-color: #eee;
+}
+
+.excelTable  td, .excelTable  th {
+	height: 20px;
+	border: 1px solid #000;
+	line-height: 18px;
+	text-align: center;
+}
+
+.excelTable  td:hover {
+	background: #eee;
+}
+
+.excelTable  th {
+	background: #bbb;
+	color: #fff;
+}
+
+.excelTable  th:first-child {
+	width: 30px;
+}
+
+.addRow {
+	padding: 1px 0;
+	cursor: pointer;
+	font-size: 11px;
+	font-weight: 700;
+	text-indent: 0 !important;
+}
+
+.error {
+	color: #f00;
+}
+
+.buttons {
+	margin: 5px 0;
+}
+
+.buttons input {
+	margin: 5px 0;
+	padding: 3px 7px;
+	background: #7DB7F9;
+	border: 0;
+	color: #000;
+	font-variant: small-caps;
+	cursor: pointer;
+
+}
