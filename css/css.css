@@ -208,6 +208,7 @@ body {
 .experiments .link {
   display: block;
   text-decoration: none;
+  height: 120px;
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
   -ms-perspective: 1000px;

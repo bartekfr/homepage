@@ -164,6 +164,7 @@ body {
 	.link {
 		display: block;
 		text-decoration: none;
+		height: 120px;
  		@include perspective(1000px);
  		@include transform-style(preserve-3d);
 	}

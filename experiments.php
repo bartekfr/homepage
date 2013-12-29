@@ -4,7 +4,7 @@
 		<ul class="site-list experiments">
 			<li><a class="link" href="css-power">
 				<span class="name">Power of CSS3</span>
-				<span class="description">CSS3 animation, transforms and a few other cool features</span>
+				<span class="description">View made with CSS3 animation and transformations</span>
 			</a></li>
 			<li><a class="link" href="file">
 				<span class="name">Local files reading</span>
@@ -15,7 +15,7 @@
 				<span class="description">Image slider with fade and carousel effects</span>
 			<li><a class="link" href="clock">
 				<span class="name">Canvas clock</span>
-				<span class="description">HTML5 Canvas</span>
+				<span class="description">Ticking clock drawn on canvas</span>
 			</a></li>
 			<li><a class="link" href="chart">
 				<span class="name">Chart drawing</span>
@@ -30,8 +30,8 @@
 				<span class="description">Detecting elements collision on canvas element</span>
 			</a></li>
 			<li><a class="link" href="transform-order">
-				<span class="name">Order of transformation</span>
-				<span class="description">See that order of transformation matters</span>
+				<span class="name">Order of transformations</span>
+				<span class="description">See that order of transformations matters</span>
 			</a></li>
 		</ul>
 	</div>
