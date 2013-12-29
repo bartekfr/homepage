@@ -486,9 +486,9 @@ var galleryRotator;
 			setAutorotate();
 		}
 
-	}
+	};
 
-})(jQuery)
+})(jQuery);
 
 galleryRotator({panelSelector: '.gallery-section-rotator', type: 'stack', effect: "dissolve", speed: 1700});
 

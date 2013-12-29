@@ -138,6 +138,7 @@ body {
 	padding: 50px 0;
 	min-height: 200px;
 	background-color: #fff;
+	@extend %clearfix;
 }
 
 
@@ -232,6 +233,8 @@ body {
 @import "_fileReading";
 @import "_rotator";
 @import "_tabs";
+@import "_transformOrder";
+@import "charts";
 
 
 

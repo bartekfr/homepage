@@ -43,6 +43,20 @@ module.exports = function(grunt){
 				dest: 'js/',
 				filter: 'isFile',
 			}
+		},
+		jshint: {
+			components: {
+				options: {
+					curly: true,
+					eqeqeq: true,
+					eqnull: true,
+					browser: true,
+					globals: {
+						jQuery: true
+					},
+				},
+				src: ['src/js/components']
+			}
 		}
 
 	});

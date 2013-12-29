@@ -62,11 +62,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /*Mixins and functions
 ----------------------------------------------*/
 .main-header,
-.main-footer, .main-menu, .experiments {
+.main-footer, .main-menu, #main, .experiments {
   *zoom: 1;
 }
 .main-header:after,
-.main-footer:after, .main-menu:after, .experiments:after {
+.main-footer:after, .main-menu:after, #main:after, .experiments:after {
   content: "";
   display: table;
   clear: both;
@@ -1107,4 +1107,107 @@ body {
 
 .tab-content-item {
   overflow: hidden;
+}
+
+/*css3 transformk order
+-------------------------------------------*/
+.c,
+.b,
+.a {
+  width: 60px;
+  height: 60px;
+  padding: 5px;
+}
+
+.c {
+  background-color: orange;
+  color: #000;
+}
+
+.b {
+  background-color: blue;
+  color: #fff;
+}
+
+section.order {
+  width: 300px;
+  float: left;
+  padding: 30px 15px;
+  margin: 30px;
+  border: 1px solid #000;
+}
+
+.order h1 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.order h2 {
+  font-size: 1em;
+  margin: 35px 15px;
+}
+
+/* chart
+-----------------------------------------------*/
+.excelTable {
+  border-collapse: collapse;
+  border: 1px solid #000;
+  margin: 10px 0;
+}
+
+.excelTable input[type="text"] {
+  height: 20px;
+  text-align: center;
+  background: none;
+  border: none;
+}
+
+.excelTable input.active[type="text"] {
+  background-color: #eee;
+}
+
+.excelTable td, .excelTable th {
+  height: 20px;
+  border: 1px solid #000;
+  line-height: 18px;
+  text-align: center;
+}
+
+.excelTable td:hover {
+  background: #eee;
+}
+
+.excelTable th {
+  background: #bbb;
+  color: #fff;
+}
+
+.excelTable th:first-child {
+  width: 30px;
+}
+
+.addRow {
+  padding: 1px 0;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  text-indent: 0 !important;
+}
+
+.error {
+  color: #f00;
+}
+
+.buttons {
+  margin: 5px 0;
+}
+
+.buttons input {
+  margin: 5px 0;
+  padding: 3px 7px;
+  background: #7DB7F9;
+  border: 0;
+  color: #000;
+  font-variant: small-caps;
+  cursor: pointer;
 }
