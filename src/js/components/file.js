@@ -44,29 +44,33 @@
 			event = event || window.event;
 			//event.preventDefault();
 			var files = event.dataTransfer.files;
-			var result;
 			if(files) {
 				for (var i = 0, l = files.length; i < l; i++) {
-					var f = files[i];
-					var reader = new FileReader();
-					if(f.type.search('image') !== (-1)){
-						if(f.size < (3 * 1024 * 1024)) {
+					var fileCurrent = files[i];
+					(function(f){
+						var reader = new FileReader();
+						if(f.type.search('image') !== (-1)){
+							if(f.size < (3 * 1024 * 1024)) {
+								reader.onload = function() {
+									var result = this.result;
+									var fname = f.name;
+									console.log(fname);
+									drop.innerHTML += "<p>File name: " + f.name + " <br/>" + "File size: " + f.size + " bytes  </p>";
+									document.getElementById('drop').innerHTML += '<img src="' + result + '" />';
+								};
+								reader.readAsDataURL(f);
+							} else {
+								document.getElementById('drop').innerHTML += "File is too big. Try to upload smaller image.<br/>";
+							}
+						} else if(f.type.search('text') !== (-1)){
 							reader.onload = function() {
 								result = this.result;
-								document.getElementById('drop').innerHTML += '<img src="' + result + '" />';
+								drop.innerHTML += "<p>File name: " + f.name + " <br/>" + "File size: " + f.size + " bytes  </p>";
+								document.getElementById('drop').innerHTML += result + "<br/>" ;
 							};
-							reader.readAsDataURL(f);
-						} else {
-							document.getElementById('drop').innerHTML += "File is too big. Try to upload smaller image.<br/>";
+							reader.readAsText(f);
 						}
-					} else if(f.type.search('text') !== (-1)){
-						reader.onload = function() {
-							result = this.result;
-							document.getElementById('drop').innerHTML += result + "<br/>" ;
-						};
-						reader.readAsText(f);
-					}
-					drop.innerHTML += "<p>File name: " + f.name + " <br/>" + "File size: " + f.size + " bytes  </p>";
+					})(fileCurrent);
 				}
 			}
 			drop.innerHTML += event.dataTransfer.getData("text");
