@@ -6,6 +6,7 @@
 @import "compass/reset";
 @import "compass/css3/box-sizing";
 @import "compass/css3/transform";
+@import "compass/css3/images";
 @import "compass/typography/lists";
 
 main {
@@ -16,6 +17,7 @@ main {
 /*Mixins and functions
 ----------------------------------------------*/
 $blue: #7DB7F9;
+$darkenBlue: darken($blue, 10%);
 $baseFontSize: 14px;
 
 $tabletWidth: 768px;
@@ -54,7 +56,12 @@ body {
 }
 
 .title {
+	font-family: 'Asap', Arial, sans-serif;
 	font-size: pxToEm(26px);
+}
+
+.main-menu {
+	font-family: 'Asap', Arial, sans-serif;
 }
 
 /*Layout
@@ -75,7 +82,7 @@ body {
 
 .main-header {
 	height: 70px;
-	border-bottom: 10px solid darken($blue, 10%);
+	border-bottom: 10px solid $darkenBlue;;
 }
 
 #logo  {
@@ -139,7 +146,7 @@ body {
 /*Main
 -----------*/
 #main {
-	padding: 50px 0;
+	padding: 70px 0;
 	min-height: 200px;
 	background-color: #fff;
 	@extend %clearfix;
@@ -148,7 +155,7 @@ body {
 
 .content {
 	.title {
-		margin-bottom: 30px;
+		margin-bottom: 50px;
 	}
 	p {
 
@@ -161,13 +168,12 @@ $boxHeight: 100px;
 .experiments  {
 	@extend %clearfix;
 	li {
-
-		padding: 20px;
+		padding: 10px;
 	}
 	.link {
 		display: block;
 		text-decoration: none;
-		height: $boxHeight + 20px;
+		height: $boxHeight + 15px;
  		@include perspective(1000px);
  		@include transform-style(preserve-3d);
 	}
@@ -182,18 +188,23 @@ $boxHeight: 100px;
 		color: #fff;
 		transition: -webkit-transform 1s;
 		transition: transform 1s;
+		@include backface-visibility();
 	}
 	.name {
 		@include transform-origin(50%, 50%, -$boxHeight/2);
 		@include transform(rotateX(0deg));
 		background-color: lighten(#000, 30%);
+		@include background(linear-gradient(to top, #000, lighten(#000, 40%)));
+		background: lighten(#000, 40%);
 	}
 	.description {
 		@include transform-origin(50%, 50%, -$boxHeight/2);
 		@include transform(translateY(-$boxHeight)  rotateX(-90deg));
+		background: $darkenBlue;
 	}
 
-	a:hover {
+	a:hover,
+	a:focus {
 		.name {
 			@include transform(rotateX(90deg));
 		}
@@ -208,7 +219,6 @@ $boxHeight: 100px;
 	.experiments li {
 		float: left;
 		width: 33.3333%;
-		padding: 10px;
 	}
 }
 

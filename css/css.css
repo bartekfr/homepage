@@ -97,7 +97,12 @@ body {
 }
 
 .title {
+  font-family: 'Asap', Arial, sans-serif;
   font-size: 1.85714em;
+}
+
+.main-menu {
+  font-family: 'Asap', Arial, sans-serif;
 }
 
 /*Layout
@@ -193,24 +198,24 @@ body {
 /*Main
 -----------*/
 #main {
-  padding: 50px 0;
+  padding: 70px 0;
   min-height: 200px;
   background-color: #fff;
 }
 
 .content .title {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 /*Lab page
 -----------*/
 .experiments li {
-  padding: 20px;
+  padding: 10px;
 }
 .experiments .link {
   display: block;
   text-decoration: none;
-  height: 120px;
+  height: 115px;
   -webkit-perspective: 1000px;
   -moz-perspective: 1000px;
   -ms-perspective: 1000px;
@@ -233,6 +238,11 @@ body {
   color: #fff;
   transition: -webkit-transform 1s;
   transition: transform 1s;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .experiments .name {
   -webkit-transform-origin: 50% 50% -50px;
@@ -246,6 +256,12 @@ body {
   -o-transform: rotateX(0deg);
   transform: rotateX(0deg);
   background-color: #4d4d4d;
+  background: -webkit-gradient(linear, to top, to bottom, color-stop(0%, #000000), color-stop(100%, #666666));
+  background: -webkit-linear-gradient(to top, #000000, #666666);
+  background: -moz-linear-gradient(to top, #000000, #666666);
+  background: -o-linear-gradient(to top, #000000, #666666);
+  background: linear-gradient(to top, #000000, #666666);
+  background: #666666;
 }
 .experiments .description {
   -webkit-transform-origin: 50% 50% -50px;
@@ -258,15 +274,18 @@ body {
   -ms-transform: translateY(-100px) rotateX(-90deg);
   -o-transform: translateY(-100px) rotateX(-90deg);
   transform: translateY(-100px) rotateX(-90deg);
+  background: #4c9cf7;
 }
-.experiments a:hover .name {
+.experiments a:hover .name,
+.experiments a:focus .name {
   -webkit-transform: rotateX(90deg);
   -moz-transform: rotateX(90deg);
   -ms-transform: rotateX(90deg);
   -o-transform: rotateX(90deg);
   transform: rotateX(90deg);
 }
-.experiments a:hover .description {
+.experiments a:hover .description,
+.experiments a:focus .description {
   -webkit-transform: translateY(-100px) rotateX(0);
   -moz-transform: translateY(-100px) rotateX(0);
   -ms-transform: translateY(-100px) rotateX(0);
@@ -278,7 +297,6 @@ body {
   .experiments li {
     float: left;
     width: 33.3333%;
-    padding: 10px;
   }
 }
 @media only screen and (min-width: 768px) {

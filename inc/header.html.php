@@ -6,11 +6,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>BF</title>
+		<title>Bartek Fryzowicz</title>
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width">
 		<link rel="stylesheet" href="css/css.css">
-
+		<link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
 		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
 	</head>
 	<body>
@@ -21,11 +21,11 @@
 			<header class="main-header" role="banner">
 				<div class="inner">
 					<h1 id="logo">
-						<a href="experiments">
+						<a title="home" href="experiments">
 							<img src="img/logo.png" alt="logo" />
 						</a>
 					</h1>
-					<nav class="main-menu">
+					<nav class="main-menu" role="navigation">
 						<ul >
 							<li class="item"><a href="experiments">Home</a></li>
 							<li class="item"><a href="projects">Projects</a></li>
