@@ -299,17 +299,18 @@ var createExcel;
 	};
 })(jQuery);
 
-var grid = new createExcel('.excelTable');
-$('.draw').on('click', function(){
-	try{
-		$('#chart').chart(grid.dataFinal, {color: "#595959"});
-	}
-	catch(e) {
-		var error = 'Ups, there is an error: ' + e.name + '<br/>';
-		$('#error').html(error);
-	}
-
-});
+if($('.excelTable').length) {
+	var grid = new createExcel('.excelTable');
+	$('.draw').on('click', function(){
+		try{
+			$('#chart').chart(grid.dataFinal, {color: "#595959"});
+		}
+		catch(e) {
+			var error = 'Ups, there is an error: ' + e.name + '<br/>';
+			$('#error').html(error);
+		}
+	});
+}
 
 
 

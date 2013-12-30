@@ -101,7 +101,7 @@ var galleryRotator;
 			gallerySelector: 'ul',
 			type: 'carousel',
 			speed: 600,
-			duration: 3000,
+			duration: 4000,
 			visibleItems: 1,
 			effect: 'fade',
 			autostart: true,
@@ -164,8 +164,9 @@ var galleryRotator;
 		var currentImgHolder;
 		var imagesSrc = [];
 		var slicesArray = [];
-		var sliceWidth = 20;
-		var steps = itemWidth / sliceWidth;
+		var steps = 30;
+		//var steps = itemWidth / sliceWidth;
+		var sliceWidth = itemWidth / steps;
 		var isAnimated = false;
 		var slices = [];
 		if(settings.effect === 'fade' || settings.effect === 'sharp') {

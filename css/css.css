@@ -199,9 +199,11 @@ body {
 }
 
 .content .title {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
+/*Lab page
+-----------*/
 .experiments li {
   padding: 20px;
 }
@@ -275,8 +277,13 @@ body {
 @media only screen and (min-width: 470px) {
   .experiments li {
     float: left;
-    width: 25%;
+    width: 33.3333%;
     padding: 10px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .experiments li {
+    width: 25%;
   }
 }
 .projects {
@@ -1100,7 +1107,7 @@ body {
 /* rotator
 ----------------------------------------------------*/
 .gallery-section {
-  width: 900px;
+  max-width: 900px;
   margin: auto;
   margin-bottom: 20px;
   *zoom: 1;
@@ -1112,14 +1119,17 @@ body {
 }
 .gallery-section img {
   display: block;
+  max-width: 100%;
 }
-.gallery-section li {
+.gallery-section .rotator > li {
   float: left;
+  width: 100%;
 }
 .gallery-section .menu {
   padding: 10px 0;
 }
 .gallery-section .menu li {
+  float: left;
   padding: 0 5px 0 0;
   font-size: 20px;
 }

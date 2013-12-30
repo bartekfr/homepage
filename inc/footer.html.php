@@ -7,7 +7,7 @@
 						My name is Bartek Fryzowicz. I'm a front-end devloper (and a bit of graphic designer).
 						I specialize in: <strong>HTML5, CSS3 i JS (+jQuery)</strong>.<br/>
 						I'm especially interested in creating graphics using front-end technologies.<br/>
-						I work for <a href="http://www.roche.pl" target="_blank">Roche</a>.
+						If you have any interesting offers let me know:)
 					</p>
 					Find me on:
 					<ul>

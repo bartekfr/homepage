@@ -2,19 +2,22 @@
 /* rotator
 ----------------------------------------------------*/
 .gallery-section {
-	width: 900px;
+	max-width: 900px;
 	margin: auto;
 	margin-bottom: 20px;
 	@include pie-clearfix;
 	img {
 		display: block;
+		max-width: 100%;
 	}
-	li {
+	.rotator > li {
 		float: left;
+		width: 100%;
 	}
 	.menu {
 		padding: 10px 0;
 		li {
+			float: left;
 			padding: 0 5px 0 0;
 			font-size: 20px;
 

@@ -148,13 +148,16 @@ body {
 
 .content {
 	.title {
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 	}
 	p {
 
 	}
 }
 
+/*Lab page
+-----------*/
+$boxHeight: 100px;
 .experiments  {
 	@extend %clearfix;
 	li {
@@ -164,13 +167,13 @@ body {
 	.link {
 		display: block;
 		text-decoration: none;
-		height: 120px;
+		height: $boxHeight + 20px;
  		@include perspective(1000px);
  		@include transform-style(preserve-3d);
 	}
 	.name, .description {
 		display: block;
-		height: 100px;
+		height: $boxHeight;
 		padding: 15px;
 		background: #000;
 		font-size: pxToEm(15px);
@@ -181,13 +184,13 @@ body {
 		transition: transform 1s;
 	}
 	.name {
-		@include transform-origin(50%, 50%, -50px);
+		@include transform-origin(50%, 50%, -$boxHeight/2);
 		@include transform(rotateX(0deg));
 		background-color: lighten(#000, 30%);
 	}
 	.description {
-		@include transform-origin(50%, 50%, -50px);
-		@include transform(translateY(-100px)  rotateX(-90deg));
+		@include transform-origin(50%, 50%, -$boxHeight/2);
+		@include transform(translateY(-$boxHeight)  rotateX(-90deg));
 	}
 
 	a:hover {
@@ -204,8 +207,14 @@ body {
 @include media($phoneWidth) {
 	.experiments li {
 		float: left;
-		width: 25%;
+		width: 33.3333%;
 		padding: 10px;
+	}
+}
+
+@include media($tabletWidth) {
+	.experiments li {
+		width: 25%;
 	}
 }
 

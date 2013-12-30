@@ -182,7 +182,7 @@
 	});
 })(jQuery);
 
-$('.tab').tabs();
+var tab = $('.tab').tabs();
 
 
 
