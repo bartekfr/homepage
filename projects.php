@@ -1,7 +1,7 @@
 <?php	include_once 'inc/header.html.php';?>
 		<h1 class="title"><span>Projects I've worked on</span></h1>
 		<section class="projects">
-			<h2 class="company">Roche</h2>
+			<h2 class="company"><a target="_blank" href="http://www.roche.pl">Roche Polska</a></h2>
 			<ul class="projects-list">
 				<li>
 					<a target="_blank" href="http://www.rocheoncology.nl">Roche Oncology</a>
@@ -27,7 +27,7 @@
 			</ul>
 		</section>
 		<section class="projects">
-			<h2 class="company">ProfitROOM (IDEATRONIC)</h2>
+			<h2 class="company"><a target="_blank" href="http://www.profitroom.pl">Profitroom</a></h2>
 			<ul class="projects-list">
 				<li><a target="_blank"  href="http://www.hoteldyplomat.com/">Hotel Dyplomat</a>
 				<span>Zakres obowiązków: XHTML, CSS, integracja z CMS, JavaScript</span>

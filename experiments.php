@@ -40,7 +40,7 @@
 			</li>
 			<li>
 				<a class="link" href="collision">
-					<span class="name">(Vaery) Simple collison detection</span>
+					<span class="name">(Very) Simple collison detection</span>
 					<span class="description">Detecting elements collision on canvas</span>
 				</a>
 			</li>
