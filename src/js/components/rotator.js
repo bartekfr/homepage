@@ -187,6 +187,7 @@ var galleryRotator;
 						css: {
 							backgroundImage: 'url(' + imagesSrc[i] + ')',
 							backgroundPosition:  - (steps- j - 1) * sliceWidth + 'px 0',
+							backgroundSize: itemWidth,
 							width: sliceWidth,
 							height: itemHeight,
 							position: 'absolute',
