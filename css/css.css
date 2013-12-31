@@ -107,6 +107,10 @@ body {
 
 /*Layout
 ----------------------------------------------*/
+.wrapper {
+  overflow: hidden;
+}
+
 /*Header
 -----------*/
 .inner {
