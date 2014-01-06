@@ -2,14 +2,14 @@
 			</main>
 			<footer class="main-footer">
 				<div class="inner">
-					<p>&copy; <a href="mailto:bartekfr@wp.pl">Bartek Fryzowicz</a> 2013</p>
+					<p>&copy; <a href="mailto:bartekfr@wp.pl">Bartek Fryzowicz</a> 2014. All rights reserved</p>
 					<p>
 						My name is Bartek Fryzowicz. I'm a front-end devloper (and a bit of graphic designer).
-						I specialize in: <strong>HTML5, CSS3 i JS (+jQuery)</strong>.<br/>
+						I specialize in: <strong>HTML5, CSS3 and JavaScript</strong>.<br/>
 						I'm especially interested in creating graphics using front-end technologies.<br/>
 						If you have any interesting offers let me know:)
 					</p>
-					Find me on:
+					Find me also on:
 					<ul>
 						<li><a title="github" href="https://github.com/bartekfr/">Github</a></li>
 						<li><a title="goldenline" href="http://www.goldenline.pl/bartlomiej-fryzowicz/">Goldenline</a></li>

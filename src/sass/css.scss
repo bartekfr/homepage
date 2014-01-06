@@ -135,7 +135,7 @@ body {
 		text-decoration: none;
 		transition: background-color 1s, border-width 0.3s;
 
-		&:hover, &:focus {
+		&:hover, &:focus, &:target {
 			background-color: darken($blue, 10%);
 			border-bottom: 10px solid lighten(#000, 20%);
 		}
@@ -177,6 +177,7 @@ body {
 $boxHeight: 100px;
 .experiments  {
 	@extend %clearfix;
+	margin: 0 -10px;
 	li {
 		padding: 10px;
 	}

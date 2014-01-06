@@ -28,8 +28,8 @@
 					<nav class="main-menu" role="navigation">
 						<ul >
 							<li class="item"><a href="experiments">Home</a></li>
-							<li class="item"><a href="projects">Projects</a></li>
-							<li class="item"><a href="experiments">Lab</a></li>
+							<li class="item"><a id="projects" href="projects#projects">Projects</a></li>
+							<li class="item"><a id="experiments" href="experiments#experiments">Lab</a></li>
 						</ul>
 					</nav>
 				</div>
