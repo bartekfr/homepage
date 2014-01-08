@@ -1,3 +1,4 @@
+
 /**
 author: Bartlomiej Fryzowicz
 e-mail: bfryzowicz@gmail.com
@@ -29,6 +30,8 @@ e-mail: bfryzowicz@gmail.com
 	c.height = height;
 	ctx.scale(scale, scale);
 	var objectId = 0;
+
+
 	/*canvas rectangle object*/
 	function createObject(active, x, y, width, height, color) {
 		this.x = x;
@@ -103,8 +106,9 @@ e-mail: bfryzowicz@gmail.com
 	}
 
 	function getCurrentCursorPosition(e) {
-		x = e.pageX - cLeft;
-		y = e.pageY - cTop;
+		//hammer return clientX/Y as pageX/Y!
+		x = e.pageX - cLeft + $(window).scrollLeft();
+		y = e.pageY - cTop + $(window).scrollTop();
 		x = x / scale;
 		y = y / scale;
 	}
@@ -114,18 +118,7 @@ e-mail: bfryzowicz@gmail.com
 		dy = y - y0;
 	}
 
-	/*Mouse events*/
-	c.onmousedown = drawStage;
-
-	c.onmouseup = function(){
-		mouseDown = false;
-	};
-
-	c.onmouseout = function(){
-		mouseDown = false;
-	};
-
-	c.onmousemove = function(e){
+	function move(e) {
 		if (mouseDown === false) {
 			return false;
 		}
@@ -148,7 +141,26 @@ e-mail: bfryzowicz@gmail.com
 		x0 = x;
 		y0 = y;
 		resetObjects();
-	};
+	}
+
+	//var touchy = ("ontouchstart" in document.documentElement)? true: false;
+	var hammertime = Hammer(c, {prevent_default: true});
+	hammertime.on('touch', function(e){
+		e = e.gesture.center;
+		drawStage(e);
+	});
+
+	hammertime.on('release', function(e){
+		e = e.gesture.center;
+		mouseDown = false;
+	});
+
+	hammertime.on('drag', function(e) {
+		e = e.gesture.center;
+		move(e);
+		return false;
+	});
+
 
 	function drawStage(e) {
 		ctx.clearRect(0, 0, width, height);
@@ -162,13 +174,6 @@ e-mail: bfryzowicz@gmail.com
 			objects[i].draw();
 		}
 	}
-
-	c.addEventListener('touchmove', function(e) {
-		e.preventDefault();
-		e = e.targetTouches[0];
-		c.onmousemove(e);
-		return false;
-	});
 
 	function max(arr) {
 		var maxi  = 0;
