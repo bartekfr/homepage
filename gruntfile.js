@@ -30,7 +30,7 @@ module.exports = function(grunt){
 				options: {
 					sassDir: "src/sass",
 					cssDir: "css",
-					outputStyle: "expanded",
+					outputStyle: "compressed",
 					noLineComments: true
 				}
 			}
