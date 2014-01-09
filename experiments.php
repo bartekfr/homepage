@@ -4,50 +4,66 @@
 		<ul class="site-list experiments">
 			<li>
 				<a class="link" href="css-power#experiments">
-					<span class="name">Power of CSS3</span>
-					<span class="description">View made with CSS3 animation and transformations</span>
+					<div>
+						<span class="name">Power of CSS3</span>
+						<span class="description">View made with CSS3 animation and transformations</span>
+					</div>
 				</a>
 			</li>
 			<li>
 				<a class="link" href="file#experiments">
-					<span class="name">Local files reading</span>
-					<span class="description">HTML5 File and Drag and Drop APIs</span>
+					<div>
+						<span class="name">Local files reading</span>
+						<span class="description">HTML5 File and Drag and Drop APIs</span>
+					</div>
 				</a>
 			</li>
 			<li>
 				<a class="link" href="rotator#experiments">
-					<span class="name">Image slider</span>
-					<span class="description">Image slider with fade and carousel effects</span>
+					<div>
+						<span class="name">Image slider</span>
+						<span class="description">Image slider with fade and carousel effects</span>
+					</div>
 				</a>
 			</li>
 			<li>
 				<a class="link" href="clock#experiments">
-					<span class="name">Canvas clock</span>
-					<span class="description">Ticking clock drawn on canvas</span>
+					<div>
+						<span class="name">Canvas clock</span>
+						<span class="description">Ticking clock drawn on canvas</span>
+					</div>
 				</a>
 			</li>
 			<li>
 				<a class="link" href="chart#experiments">
-					<span class="name">Chart drawing</span>
-					<span class="description">Draw chart based on entered data</span>
+					<div>
+						<span class="name">Chart drawing</span>
+						<span class="description">Draw chart based on entered data</span>
+					</div>
 				</a>
 			</li>
 			<li>
 				<a class="link" href="tab#experiments">
-					<span class="name">Tab widget</span>
-					<span class="description">jQuery widget based on transition events</span>
+					<div>
+						<span class="name">Tab widget</span>
+						<span class="description">jQuery widget based on transition events</span>
+					</div>
 				</a>
 			</li>
 			<li>
 				<a class="link" href="collision#experiments">
-					<span class="name">(Very) Simple collison detection</span>
-					<span class="description">Detecting rectangles collision on canvas</span>
+					<div>
+						<span class="name">(Very) Simple collison detection</span>
+						<span class="description">Detecting rectangles collision on canvas</span>
+					</div>
 				</a>
 			</li>
 			<li>
 				<a class="link" href="transform-order#experiments">
-					<span class="name">Order of transformations</span>
-					<span class="description">See why order of transformations matters</span>
+					<div>
+						<span class="name">Order of transformations</span>
+						<span class="description">See why order of transformations matters</span>
+					</div>
 				</a>
 			</li>
 		</ul>
