@@ -234,7 +234,7 @@ $boxHeight: 100px;
 		top: 0;
 		left: 0;
 		@include perspective(1000px);
-		@include transform-style(preserve-3d);
+		//@include transform-style(preserve-3d);
 	}
 	.name, .description {
 		display: block;
