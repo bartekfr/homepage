@@ -92,7 +92,7 @@ body {
 	float: left;
 	&:hover {
 		a {
-			@include transform(rotateY(360deg));
+			//@include transform(scale(1.1));
 		}
 	}
 	a {
@@ -219,9 +219,8 @@ $boxHeight: 100px;
 		display: block;
 		text-decoration: none;
 		height: $boxHeight + 15px;
- 		@include perspective(1000px);
- 		@include transform-style(preserve-3d);
- 		@include transform(translateZ(1px));
+		@include perspective(1000px);
+		@include transform-style(preserve-3d);
 	}
 	.name, .description {
 		display: block;
@@ -231,8 +230,8 @@ $boxHeight: 100px;
 		text-decoration: none;
 		font-weight: bold;
 		color: #fff;
-		transition: -webkit-transform 1s;
-		transition: transform 1s;
+		transition: -webkit-transform 0.5s;
+		transition: transform 0.5s;
 		@include backface-visibility();
 	}
 	.name {
@@ -247,13 +246,13 @@ $boxHeight: 100px;
 		background: $darkenBlue;
 	}
 
-	a:hover,
-	a:focus {
+	.link:hover,
+	.link:focus {
 		.name {
 			@include transform(rotateX(90deg));
 		}
 		.description {
-			@include transform(translateY(-100px)  rotateX(0) );
+			@include transform(translateY(-100px)  rotateX(0));
 		}
 
 	}
