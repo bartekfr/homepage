@@ -213,10 +213,11 @@ $boxHeight: 100px;
 	@extend %clearfix;
 	margin: 0 -10px;
 	li {
-		padding: 10px;
+		padding: 5px;
 	}
 	.link {
 		display: block;
+		padding:5px;
 		text-decoration: none;
 		height: $boxHeight + 15px;
 		@include perspective(1000px);
@@ -236,8 +237,6 @@ $boxHeight: 100px;
 	}
 	.name {
 		@include transform-origin(50%, 50%, -$boxHeight/2);
-		//@include transform(rotateX(0deg));
-		//@include background(linear-gradient(to top, #000, lighten(#000, 40%)));
 		background: lighten(#000, 40%);
 	}
 	.description {
