@@ -1,5 +1,6 @@
 /**
- * @author BF
+ * @author Bartek Fryzowicz
+ * TODO: make rotator responsive
  */
 var paginator;
 

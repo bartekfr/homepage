@@ -27,9 +27,8 @@
 					</h1>
 					<nav class="main-menu" role="navigation">
 						<ul >
-							<li class="item"><a href="experiments">Home</a></li>
-							<li class="item"><a id="projects" href="projects#projects">Projects</a></li>
-							<li class="item"><a id="experiments" href="experiments#experiments">Lab</a></li>
+							<li class="item"><a id="portfolio" href="projects#portfolio">Portfolio</a></li>
+							<li class="item"><a id="experiments" href="experiments#experiments">Experiments</a></li>
 						</ul>
 					</nav>
 				</div>

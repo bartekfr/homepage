@@ -121,9 +121,7 @@ body {
 
 	.item {
 		@include horizontal-list-item(0);
-		&:first-child {
-			display: none;
-		}
+
 	}
 	.item a {
 		display: block;
@@ -151,9 +149,6 @@ body {
 
 @include media($phoneWidth) {
 	.main-menu .item {
-		&:first-child{
-			display: block;
-		}
 		a {
 			padding: 10px 20px;
 		}
