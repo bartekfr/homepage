@@ -205,7 +205,7 @@ var galleryRotator;
 						prevLeft = currentLeft;
 
 						$(this).css({
-							backgroundPosition:  - (steps- j - 1) * currentWidth + 'px 0',
+							backgroundPosition:  - currentLeft + 'px 0',
 							backgroundSize: itemWidth,
 							height: currentHeight,
 							width: currentWidth,
