@@ -297,7 +297,7 @@ var galleryRotator;
 		}
 
 		function updateCurrentHolder(k) {
-			slicesArray[k].css('opacity', 1).width(itemWidth);
+			slicesArray[k].css('opacity', 1).width(sliceWidth);
 			currentImgHolder = items.eq(activeItem);
 		}
 
@@ -406,6 +406,6 @@ var galleryRotator;
 })(jQuery);
 
 $(window).on('load', function(){
-	galleryRotator({panelSelector: '.gallery-section-rotator', type: 'stack', effect: "dissolve", speed: 700});
+	galleryRotator({panelSelector: '.gallery-section-rotator', type: 'stack', effect: "dissolve", speed: 1000});
 	galleryRotator({panelSelector: '.gallery-section-fade', type: 'stack', effect: "sharp", speed: 1700, autostart: false});
 });

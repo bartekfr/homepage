@@ -9,6 +9,7 @@
 		</ul>
 	</div>
 	<div class="gallery-section-fade gallery-section">
+		<p>autorotate: false</p>
 		<ul class="rotator">
 			<li><img src="img/big-banner1.jpg" alt="banner" /></li>
 			<li><img src="img/big-banner2.jpg" alt="banner" /></li>
