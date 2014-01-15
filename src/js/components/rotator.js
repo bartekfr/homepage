@@ -297,7 +297,10 @@ var galleryRotator;
 		}
 
 		function updateCurrentHolder(k) {
-			slicesArray[k].css('opacity', 1).width(sliceWidth);
+			slicesArray[k].css('opacity', 1)
+			if(steps === 1) {
+				slicesArray[k].css('width', sliceWidth);
+			}
 			currentImgHolder = items.eq(activeItem);
 		}
 
