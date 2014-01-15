@@ -5,14 +5,29 @@
 	max-width: 900px;
 	margin: auto;
 	margin-bottom: 20px;
+	position: relative;
 	@include pie-clearfix;
-	img {
+	.rotator {
+		position: relative;
+	}
+	.gallery-wrapper {
+		overflow: hidden;
+	}
+	.originalImage {
 		display: block;
 		max-width: 100%;
 	}
-	.rotator > li {
-		float: left;
+	.rotator .item {
+		position: absolute;
+		top: 0;
+		left: 0;
 		width: 100%;
+	}
+	.rotator-slice {
+		background-repeat: no-repeat;
+		position: absolute;
+		top: 0;
+	 	@include transform(translate3d(0,0,0));
 	}
 	.menu {
 		padding: 10px 0;

@@ -194,8 +194,9 @@ var createExcel;
 		});
 
 		$(document).on('keydown.excel',  function(e) {
-			if(e.which === 17)
+			if(e.which === 17) {
 				$this.ctrlPressed = true;
+			}
 		});
 
 		$(document).on('keyup.excel',  function(e) {

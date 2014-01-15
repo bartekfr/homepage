@@ -121,14 +121,9 @@ var galleryRotator;
 		var gallery = $(settings.gallerySelector, gallerySection);
 		var type = settings.type;
 		var itemSelector = settings.itemSelector;
-		var items = $(itemSelector, gallery);
+		var items = $(itemSelector, gallery).addClass('item');
 		var itemWidth = items.width();
-		var itemHeight = items.height();
-		var itemOuterWidth = items.outerWidth(true);
 		var itemsNumber = items.length;
-		var visibleItems = settings.visibleItems;
-		var fullWidth = itemsNumber * itemOuterWidth;
-		var visibleWidth = itemOuterWidth * visibleItems;
 		var speed = settings.speed;
 		var duration = settings.duration;
 		var navOptions = settings.navigation;
@@ -147,77 +142,87 @@ var galleryRotator;
 
 		/*initializing functions specific for each type of gallery*/
 		var prepare = {
-			pendulum: $.noop,
-			carousel: carouselPrepare,
 			stack: slicesPrepare
 		};
 
-		function carouselPrepare() {
-			gallery.find(itemSelector).each(function(index){
-				$(this).clone().addClass('clone').appendTo(gallery).css({
-					position: 'absolute',
-					right: - (index + 1) * itemOuterWidth
-				});
-			});
-		}
-
-		var images = gallery.find('img');
+		var images;
 		var currentImgHolder;
 		var imagesSrc = [];
 		var slicesArray = [];
-		var steps = 30;
-		//var steps = itemWidth / sliceWidth;
-		var sliceWidth = itemWidth / steps;
+		var steps;
+		var currentHeight;
+		var sliceWidth;
 		var isAnimated = false;
 		var slices = [];
-		if(settings.effect === 'fade' || settings.effect === 'sharp') {
-			steps = 1;
-			sliceWidth = itemWidth;
-		}
 
+		function updateDimensions() {
+			images = gallery.find('.originalImage');
+			currentHeight = images.height();
+			itemWidth = images.width();
+			steps = 25;
+			gallery.height(currentHeight);
+			sliceWidth = Math.floor(itemWidth / steps);
+			isAnimated = false;
+			if(settings.effect === 'fade' || settings.effect === 'sharp') {
+				steps = 1;
+				sliceWidth = itemWidth;
+			}
+		}
 		function slicesPrepare() {
+			gallery.find('img').addClass('originalImage').css('visibility', 'hidden');
+			updateDimensions();
 			stackPrepare();
 			images.each(function(i) {
 				imagesSrc[i] = $(this).attr('src');
 			});
-			gallery.find('img').remove();
 			items.each(function(i) {
 				for(var j = 0; j < steps; j++) {
-
-					$('<div>', {
+					$('<div >', {
+						"class": settings.effect + " rotator-slice o-" + (j + 1),
 						css: {
 							backgroundImage: 'url(' + imagesSrc[i] + ')',
-							backgroundPosition:  - (steps- j - 1) * sliceWidth + 'px 0',
-							backgroundSize: itemWidth,
-							width: sliceWidth,
-							height: itemHeight,
-							position: 'absolute',
-							left: itemWidth - (j + 1) * sliceWidth
 						}
 					}).appendTo($(this));
 				}
 			});
 			items.each(function(i) {
-				slicesArray[i] = $(this).find('div');
+				slicesArray[i] = $(this).find('.rotator-slice');
 			});
 			currentImgHolder = items.eq(activeItem);
+			function resize() {
+				updateDimensions();
+				items.each(function(i) {
+					var currentSlices = $('.rotator-slice', this);
+					var prevLeft = 0;
+
+					currentSlices.css('background-size', itemWidth).each(function(j) {
+						var currentWidth = sliceWidth;
+						var currentLeft = itemWidth - (j + 1) * currentWidth;
+						if((j === steps - 1) && steps !== 1) {
+							currentLeft = 0;
+							currentWidth = prevLeft;
+						}
+						prevLeft = currentLeft;
+
+						$(this).css({
+							backgroundPosition:  - (steps- j - 1) * currentWidth + 'px 0',
+							backgroundSize: itemWidth,
+							height: currentHeight,
+							width: currentWidth,
+							left: currentLeft
+						});
+					}).finish();
+				});
+			}
+			resize();
+
+			$(window).on('resize', function() {
+				resize();
+			});
 		}
 
 		function stackPrepare() {
-			visibleItems = 1;
-			visibleWidth = itemOuterWidth * visibleItems;
-			fullWidth =  itemWidth;
-			gallery.css({
-				width: itemWidth,
-				height: itemHeight
-			});
-			items.css({
-				position: 'absolute',
-				left: 0,
-				top: 0,
-				width: itemWidth,
-				height: itemHeight
-			}).each(function(index){
+			items.each(function(index){
 				$(this).css({
 					zIndex: itemsNumber - index
 				});
@@ -226,77 +231,8 @@ var galleryRotator;
 
 		/*animate functions specific for each type of gallery*/
 		var animationFunction = {
-			pendulum: pendulumAnimate,
-			carousel: carouselAnimate,
 			stack: stackAnimate
 		};
-
-		function pendulumAnimate(dir){
-			if(dir === 'prev') {
-				if(activeItem === 0){
-					return false;
-				}
-				activeItem--;
-			} else if(dir === 'next'){
-				if( activeItem >= itemsNumber - visibleItems){
-					return false;
-				}
-				activeItem++;
-			}
-			galleryAnimate();
-
-		}
-
-		function carouselAnimate(dir){
-			if(dir === 'next') {
-				activeItem++;
-				if(activeItem === itemsNumber) {
-					galleryAnimate(function(){
-						gallery.css({left: 0});
-					});
-					activeItem = 0;
-					return;
-				}
-
-			} else if(dir === 'prev') {
-				activeItem--;
-				if(activeItem === -1) {
-					gallery.css({left: -itemsNumber * itemOuterWidth});
-					activeItem = itemsNumber - 1;
-					galleryAnimate();
-					return;
-				}
-			} else {
-				if(carouselCheck(prevItem)){
-					return false;
-				}
-			}
-			galleryAnimate();
-		}
-
-		function carouselCheck(index){
-			if((index > itemsNumber - visibleItems) && ((activeItem + itemsNumber - index) < (index - activeItem))) {
-				activeItem = itemsNumber + activeItem;
-				var position = activeItem % itemsNumber;
-				galleryAnimate(function(){
-					gallery.css({
-						left: - position * itemOuterWidth
-					});
-					activeItem = position;
-				});
-				return true;
-			}
-		}
-
-		function galleryAnimate(internalFunction){
-			setActive();
-			checkCallback(callback);
-			var offset = -activeItem * itemOuterWidth;
-			gallery.stop(true, false).animate({'left': offset}, speed, function(){
-				checkCallback(callbackAfter);
-				checkCallback(internalFunction);
-			});
-		}
 
 		function stackAnimate(dir){
 			if(isAnimated){
@@ -361,7 +297,7 @@ var galleryRotator;
 		}
 
 		function updateCurrentHolder(k) {
-			slicesArray[k].css('opacity', 1).width(sliceWidth);
+			slicesArray[k].css('opacity', 1).width(itemWidth);
 			currentImgHolder = items.eq(activeItem);
 		}
 
@@ -379,19 +315,7 @@ var galleryRotator;
 			});
 		}
 		/*interval functions specific for each type of gallery*/
-		var direction;
 		var timeoutAction = {
-			carousel: function(){
-				animationFunction[type]('next');
-			},
-			pendulum: function() {
-				if(activeItem >= itemsNumber - visibleItems) {
-					direction = 'prev';
-				} else if (activeItem === 0) {
-					direction = 'next';
-				}
-				animationFunction[type](direction);
-			},
 			stack: function(){
 				animationFunction[type]('next');
 			}
@@ -405,19 +329,7 @@ var galleryRotator;
 
 		/* core functions */
 		function setStyles(){
-			var wrapper = $('<div class="gallery-wrapper">');
-			wrapper.css({
-				width: visibleWidth,
-				overflow: "hidden"
-			});
-			gallery.wrap(wrapper).css({
-				width: fullWidth,
-				position: "relative",
-				overflow: 'visible'
-			});
-			gallerySection.css({
-				position: 'relative'
-			});
+			gallery.wrap('<div class="gallery-wrapper">');
 		}
 
 		function getNavigation() {
@@ -494,5 +406,6 @@ var galleryRotator;
 })(jQuery);
 
 $(window).on('load', function(){
-	galleryRotator({panelSelector: '.gallery-section-rotator', type: 'stack', effect: "dissolve", speed: 1700});
-})
+	galleryRotator({panelSelector: '.gallery-section-rotator', type: 'stack', effect: "dissolve", speed: 700});
+	galleryRotator({panelSelector: '.gallery-section-fade', type: 'stack', effect: "sharp", speed: 1700, autostart: false});
+});
