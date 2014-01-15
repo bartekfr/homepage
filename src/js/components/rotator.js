@@ -159,7 +159,7 @@ var galleryRotator;
 			images = gallery.find('.originalImage');
 			currentHeight = images.height();
 			itemWidth = images.width();
-			steps = 25;
+			steps = 15;
 			gallery.height(currentHeight);
 			sliceWidth = Math.floor(itemWidth / steps);
 			isAnimated = false;
