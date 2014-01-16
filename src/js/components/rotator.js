@@ -1,9 +1,14 @@
 /**
  * @author Bartek Fryzowicz
- * TODO: make rotator responsive
- */
-var paginator;
+ * TODO: refactoring, maybe switch to CSS3 Animations?
 
+*/
+
+
+var paginator;
+/*
+ Pagination component
+*/
 (function ($) {
 	var DEFAULT = {
 		arrows: true,
@@ -94,16 +99,17 @@ var paginator;
 	};
 }(jQuery));
 
+
+
 var galleryRotator;
 (function($){
 	galleryRotator = function(options, callback, callbackAfter) {
 		var DEFAULT = {
 			panelSelector: '.panel.carousel',
-			gallerySelector: 'ul',
+			gallerySelector: '.rotator',
 			type: 'carousel',
 			speed: 600,
 			duration: 4000,
-			visibleItems: 1,
 			effect: 'fade',
 			autostart: true,
 			navigation: {
@@ -131,8 +137,8 @@ var galleryRotator;
 		var navigation = {};
 		var autostart = settings.autostart;
 		var interval;
+		var effect = settings.effect;
 		var navigationSelector = settings.navigationSelector;
-		var prevItem;
 
 		function checkCallback(func) {
 			if(typeof func === 'function') {
@@ -140,16 +146,19 @@ var galleryRotator;
 			}
 		}
 
-		/*initializing functions specific for each type of gallery*/
+		/*
+		initializing functions specific for each type of gallery
+		currently only one gallery type exists
+		*/
 		var prepare = {
 			stack: slicesPrepare
 		};
 
 		var images;
-		var currentImgHolder;
+		var currentImgHolder = items.eq(activeItem);
 		var imagesSrc = [];
 		var slicesArray = [];
-		var steps;
+		var steps  =  15;
 		var currentHeight;
 		var sliceWidth;
 		var isAnimated = false;
@@ -159,26 +168,25 @@ var galleryRotator;
 			images = gallery.find('.originalImage');
 			currentHeight = images.height();
 			itemWidth = images.width();
-			steps = 15;
 			gallery.height(currentHeight);
 			sliceWidth = Math.floor(itemWidth / steps);
-			isAnimated = false;
-			if(settings.effect === 'fade' || settings.effect === 'sharp') {
+			if(effect === 'fade' || effect === 'sharp') {
 				steps = 1;
 				sliceWidth = itemWidth;
 			}
 		}
+
 		function slicesPrepare() {
 			gallery.find('img').addClass('originalImage').css('visibility', 'hidden');
 			updateDimensions();
-			stackPrepare();
 			images.each(function(i) {
 				imagesSrc[i] = $(this).attr('src');
 			});
+			items.css('z-index', 0).first().css('z-index', 2);
 			items.each(function(i) {
 				for(var j = 0; j < steps; j++) {
 					$('<div >', {
-						"class": settings.effect + " rotator-slice o-" + (j + 1),
+						"class": effect + " rotator-slice o-" + (j + 1),
 						css: {
 							backgroundImage: 'url(' + imagesSrc[i] + ')',
 						}
@@ -188,135 +196,132 @@ var galleryRotator;
 			items.each(function(i) {
 				slicesArray[i] = $(this).find('.rotator-slice');
 			});
-			currentImgHolder = items.eq(activeItem);
-			function resize() {
-				updateDimensions();
-				items.each(function(i) {
-					var currentSlices = $('.rotator-slice', this);
-					var prevLeft = 0;
+			resize();
+		}
 
-					currentSlices.css('background-size', itemWidth).each(function(j) {
-						var currentWidth = sliceWidth;
-						var currentLeft = itemWidth - (j + 1) * currentWidth;
-						if((j === steps - 1) && steps !== 1) {
-							currentLeft = 0;
-							currentWidth = prevLeft;
-						}
-						prevLeft = currentLeft;
+		function resize() {
+			updateDimensions();
+			items.each(function(i) {
+				var currentSlices = $('.rotator-slice', this);
+				var prevLeft = 0;
 
-						$(this).css({
-							backgroundPosition:  - currentLeft + 'px 0',
-							backgroundSize: itemWidth,
-							height: currentHeight,
-							width: currentWidth,
-							left: currentLeft
-						});
+				currentSlices.css('background-size', itemWidth).each(function(j) {
+					var currentWidth = sliceWidth;
+					var currentLeft = itemWidth - (j + 1) * currentWidth;
+					if((j === steps - 1) && steps !== 1) {
+						currentLeft = 0;
+						currentWidth = prevLeft;
+					}
+					prevLeft = currentLeft;
+
+					$(this).css({
+						backgroundPosition:  - currentLeft + 'px 0',
+						backgroundSize: itemWidth,
+						height: currentHeight,
+						width: currentWidth,
+						left: currentLeft
 					}).finish();
 				});
-			}
+			});
+		}
+
+		$(window).on('resize', function() {
 			resize();
-
-			$(window).on('resize', function() {
-				resize();
-			});
-		}
-
-		function stackPrepare() {
-			items.each(function(index){
-				$(this).css({
-					zIndex: itemsNumber - index
-				});
-			});
-		}
+		});
 
 		/*animate functions specific for each type of gallery*/
 		var animationFunction = {
 			stack: stackAnimate
 		};
 
-		function stackAnimate(dir){
+		function prepareToCurrentAnimation(current, next) {
+			items.css('visibility', 'hidden').css('z-index', 0);
+			var $current =  items.eq(current).css('visibility', 'visible').css('z-index', 2);
+			var $next = items.eq(next).css('visibility', 'visible').css('z-index', 1);
+		}
+		function endAnimation(prev, current) {
+			var $prev =  items.eq(prev).css('visibility', 'hidden').css('z-index', 0);
+			var $current = items.eq(current).css('visibility', 'visible').css('z-index', 2);
+			resetCurrentHolder(prev);
+			checkCallback(callbackAfter);
+			setActive();
+		}
+
+		function stackAnimate(dir, no){
 			if(isAnimated){
 				return false;
 			}
-			var active = activeItem;
+			var prev = activeItem;
 			var time = speed /steps;
 			checkCallback(callback);
+
+			//calculate next active item
 			if(dir === 'next') {
 				activeItem++;
 				if(activeItem === itemsNumber) {
 					activeItem = 0;
-				}
-				isAnimated = true;
-				slices = slicesArray[active];
-				if(settings.effect === 'dissolve' || settings.effect === 'fade') {
-					slices.each(function(s) {
-						$(this).animate({
-								opacity: 0
-							},
-							time * (s + 1),
-							function() {
-								if ((s === (steps - 1))) {
-									isAnimated = false;
-									jumpToStackImage();
-									updateCurrentHolder(active);
-									checkCallback(callbackAfter);
-								}
-							}
-						);
-					});
-				} else if (settings.effect === 'sharp') {
-					slices.each(function(s) {
-						$(this).animate({
-								width: 0
-							},
-							time * (s + 1),
-							function() {
-								if ((s === (steps - 1))) {
-									isAnimated = false;
-									jumpToStackImage();
-									updateCurrentHolder(active);
-									checkCallback(callbackAfter);
-								}
-							}
-						);
-					});
 				}
 			} else if(dir === 'prev') {
 				activeItem--;
 				if(activeItem < 0) {
 					activeItem = itemsNumber - 1;
 				}
-				jumpToStackImage(activeItem);
-				updateCurrentHolder(active);
-			}	else {
-				jumpToStackImage(activeItem);
-				updateCurrentHolder(active);
-
+			} else  if (dir === 'nodir') {
+				activeItem = no;
 			}
-			setActive();
+
+			//animations functions
+			prepareToCurrentAnimation(prev, activeItem);
+			isAnimated = true;
+			slices = slicesArray[prev];
+			var animationProperty = {
+				dissolve: {
+					opacity: 0
+				},
+				fade: {
+					opacity: 0
+				},
+				sharp: {
+					width: 0
+				},
+				blind: {
+					height: 0
+				}
+			};
+			slices.each(function(s) {
+				$(this).animate(
+					animationProperty[effect],
+					time * (s + 1),
+					function() {
+						if ((s === (steps - 1))) {
+							isAnimated = false;
+							endAnimation(prev, activeItem);
+						}
+					}
+				);
+			});
 		}
 
-		function updateCurrentHolder(k) {
-			slicesArray[k].css('opacity', 1)
-			if(steps === 1) {
-				slicesArray[k].css('width', sliceWidth);
+		//reset item to default state
+		function resetCurrentHolder(k) {
+			if(effect === 'dissolve' || effect === 'fade') {
+				slicesArray[k].css({
+					opacity: 1
+				});
+			}
+			if(effect === 'blind') {
+				slicesArray[k].css({
+					height: currentHeight
+				});
+			}
+			if(effect === 'sharp') {
+				slicesArray[k].css({
+					width: sliceWidth
+				});
 			}
 			currentImgHolder = items.eq(activeItem);
 		}
 
-		function jumpToStackImage() {
-			var k = activeItem;
-			items.each(function(i) {
-				if (i < k) {
-					$(this).css('z-index',  k - i - 1);
-				} else if (i > k ) {
-					$(this).css('z-index',  itemsNumber - (i - k));
-				} else if (i === k){
-					$(this).css('z-index', itemsNumber);
-				}
-
-			});
-		}
 		/*interval functions specific for each type of gallery*/
 		var timeoutAction = {
 			stack: function(){
@@ -331,10 +336,6 @@ var galleryRotator;
 		}
 
 		/* core functions */
-		function setStyles(){
-			gallery.wrap('<div class="gallery-wrapper">');
-		}
-
 		function getNavigation() {
 			if(typeof navigationSelector !== 'undefined') {
 				navigation.container = $(navigationSelector, gallerySection);
@@ -370,9 +371,11 @@ var galleryRotator;
 			if (navOptions.numeric){
 				navigation.items.on('click', function(){
 					updateInterval();
-					prevItem = activeItem;
-					activeItem = $(navigation.items, navigation.container).index(this);
-					animationFunction[type]();
+					var itemNumber = $(navigation.items, navigation.container).index(this);
+					if(itemNumber === activeItem) {
+						return false;
+					}
+					animationFunction[type]("nodir", itemNumber);
 					return false;
 				});
 			}
@@ -387,16 +390,12 @@ var galleryRotator;
 
 		function setActive(){
 			if(navOptions.numeric) {
-				var index = activeItem % itemsNumber;
-				if(index < 0) {
-					index = itemsNumber + index;
-				}
-				navigation.container.find(navigation.items).removeClass('active').eq(index).addClass('active');
+				navigation.container.find(navigation.items).removeClass('active').eq(activeItem).addClass('active');
 			}
 		}
 
+		//rotator kick-off
 		prepare[type]();
-		setStyles();
 		getNavigation();
 		setActive();
 		bindEvents();
@@ -409,6 +408,6 @@ var galleryRotator;
 })(jQuery);
 
 $(window).on('load', function(){
-	galleryRotator({panelSelector: '.gallery-section-rotator', type: 'stack', effect: "dissolve", speed: 1000});
-	galleryRotator({panelSelector: '.gallery-section-fade', type: 'stack', effect: "sharp", speed: 1700, autostart: false});
+	galleryRotator({panelSelector: '.gallery-section-rotator', type: 'stack', effect: "dissolve", speed: 1000, autostart: false});
+	galleryRotator({panelSelector: '.gallery-section-blind', type: 'stack', effect: "blind", speed: 1700, autostart: true});
 });
