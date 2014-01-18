@@ -1,5 +1,5 @@
 <?php	include_once 'inc/header.html.php';?>
-	<h1 class="title"><span>Image Rotator</span></h1>
+	<h1 class="title"><span>Image slider</span></h1>
 	<div class="gallery-section-blind gallery-section">
 		<p>autorotate: true, effect: blind</p>
 		<ul class="rotator">

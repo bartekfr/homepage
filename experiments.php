@@ -21,8 +21,8 @@
 			<li>
 				<a class="link" href="rotator#experiments">
 					<div>
-						<span class="name">Image slider</span>
-						<span class="description">Image slider with fade and carousel effects</span>
+						<span class="name">Responsive image slider</span>
+						<span class="description">Responsive image slider with different transition effects</span>
 					</div>
 				</a>
 			</li>
