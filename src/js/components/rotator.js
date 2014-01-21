@@ -1,6 +1,6 @@
 /**
  * @author Bartek Fryzowicz
- * TODO: refactoring, maybe switch to CSS3 Animations?
+ * TODO: refactoring, maybe switch to CSS3 Animations?, move paginator to separate file
 
 */
 
@@ -244,7 +244,6 @@ var galleryRotator;
 			var $current = items.eq(current).css('visibility', 'visible').css('z-index', 2);
 			resetCurrentHolder(prev);
 			checkCallback(callbackAfter);
-			setActive();
 		}
 
 		function stackAnimate(dir, no){
@@ -288,6 +287,7 @@ var galleryRotator;
 					height: 0
 				}
 			};
+			setActive();
 			slices.each(function(s) {
 				$(this).animate(
 					animationProperty[effect],
