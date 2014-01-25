@@ -1,5 +1,9 @@
 /*drag and drop
 -------------------------------------------*/
+#dragAndDrop img {
+	max-width: 100%;
+	display: block;
+}
 
 #drop {
 	min-height: 150px;
@@ -10,8 +14,7 @@
 }
 
 #drop img {
-	float: left;
-	margin: 10px;
+	margin: 10px auto;
 }
 
 #drop p {
@@ -22,19 +25,15 @@
 	box-shadow: 0 0 10px 5px #000;
 }
 
-#dragAndDrop  ul {
+.drag-list {
 	list-style: none;
 	list-style-position: outside;
 	padding: 15px 0;
 	overflow: hidden;
 }
 
-#dragAndDrop li {
-	float: left;
-}
-
-#dragAndDrop  a {
-	float: left;
+.drag-list  a {
+	display: block;
 	margin: 0 15px;
 	padding: 15px;
 	background: #00ff2a;
@@ -45,7 +44,7 @@
 	position: relative;
 }
 
-#dragAndDrop li a:hover:after {
+.drag-list li a:hover:after {
 	content: "DRAG ME!";
 	position: absolute;
 	display: block;
@@ -55,4 +54,12 @@
 	color: #fff;
 	font-size: 24px;
 	text-align: center;
+}
+
+@include media($phoneWidth) {
+	#dragAndDrop li {
+		float: left;
+		width: 33.3333%;
+	}
+
 }

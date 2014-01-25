@@ -125,7 +125,11 @@ e-mail: bfryzowicz@gmail.com
 		getCurrentCursorPosition(e);
 		calculateDeltas();
 		clickedObject.calculateCorners(dx, dy);
+		ctx.save();
+		// Use the identity matrix while clearing the canvas
+		ctx.setTransform(1, 0, 0, 1, 0, 0);
 		ctx.clearRect(0, 0, width, height);
+		ctx.restore();
 		/*objects.forEach(function(obA, i) {
 			for(var j = i + 1; j < objects.length; j++) {
 				var obB = objects[j];

@@ -128,7 +128,7 @@ body {
 		padding: 10px 10px;
 		height: 70px;
 		color: #fff;
-		font-size: 24px;
+		font-size: 16px;
 		line-height: 40px;
 		text-shadow: 0 0 4px darken($blue, 20%);
 		text-decoration: none;
@@ -151,6 +151,7 @@ body {
 	.main-menu .item {
 		a {
 			padding: 10px 20px;
+			font-size: 24px;
 		}
 	}
 }
