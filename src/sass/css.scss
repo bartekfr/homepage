@@ -46,6 +46,7 @@ $phoneWidth: 470px;
 
 body {
 	background-color: $blue;
+
 }
 
 /*Typography
@@ -54,6 +55,7 @@ body {
 	font-family: Arial, sans-serif;
 	font-size: $baseFontSize;
 	line-height: 1.3;
+	overflow-x: hidden;
 }
 
 .title {
@@ -68,7 +70,12 @@ body {
 /*Layout
 ----------------------------------------------*/
 .wrapper {
-	overflow: hidden;
+	transition: -webkit-transform 1s;
+	transition: transform 1s;
+}
+.no-csstransforms .wrapper {
+	position: relative;
+	transition: left 1s;
 }
 /*Header
 -----------*/
@@ -110,19 +117,26 @@ body {
 	}
 }
 
+#show-menu {
+	float: right;
+	padding: 0 10px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 70px;
+	text-shadow: 0 0 4px darken($blue, 20%);
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
 .main-menu {
 	@extend %clearfix;
-
-	padding-left: 120px;
-
-	ul {
-		float: right;
-	}
-
-	.item {
-		@include horizontal-list-item(0);
-
-	}
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 100%;
+	z-index: 100;
+	background: lighten(#000, 40%);
+	display: none;
 	.item a {
 		display: block;
 		padding: 10px 10px;
@@ -136,22 +150,52 @@ body {
 
 		&:hover, &:focus {
 			background-color: darken($blue, 10%);
-			border-bottom: 10px solid lighten(#000, 20%);
 		}
-
 		//because IE skips selector doesn't understand
 		&:target {
 			background-color: darken($blue, 10%);
-			border-bottom: 10px solid lighten(#000, 20%);
 		}
 	}
 }
 
-@include media($phoneWidth) {
-	.main-menu .item {
-		a {
-			padding: 10px 20px;
-			font-size: 24px;
+.menu-panel-visible  {
+	.main-menu {
+		display: block;
+		width: 150px;
+	}
+	.wrapper {
+		@include transform(translateX(-150px) translateZ(0));
+	}
+	.no-csstransforms & .wrapper {
+		left: -150px;
+	}
+}
+
+@include media($tabletWidth) {
+	#show-menu {
+		display: none;
+	}
+	.main-menu {
+		display: block;
+		position: static;
+		padding-left: 120px;
+		background: none;
+
+		ul {
+			float: right;
+		}
+		.item {
+			@include horizontal-list-item(0);
+			a {
+				padding: 10px 20px;
+				font-size: 24px;
+				&:hover, &:focus {
+					border-bottom: 10px solid lighten(#000, 20%);
+				}
+				&:target {
+					border-bottom: 10px solid lighten(#000, 20%);
+				}
+			}
 		}
 	}
 }

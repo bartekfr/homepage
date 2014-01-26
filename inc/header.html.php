@@ -25,6 +25,7 @@
 							<img src="img/logo.png" alt="logo" />
 						</a>
 					</h1>
+					<div id="show-menu">menu</div>
 					<nav class="main-menu" role="navigation">
 						<ul >
 							<li class="item"><a id="portfolio" href="projects#portfolio">Portfolio</a></li>
