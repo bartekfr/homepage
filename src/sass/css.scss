@@ -134,7 +134,6 @@ body {
 	top: 0;
 	bottom: 0;
 	left: 100%;
-	@include transform(translateZ(0));
 	background: lighten(#000, 40%);
 	display: none;
 	.item a {
