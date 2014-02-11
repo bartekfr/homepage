@@ -4,7 +4,7 @@
 			<h2 class="company">Some freelance projects</h2>
 			<ul class="projects-list">
 				<li>
-					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/abc">ABC</a>
+					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/nas">NaS</a>
 				</li>
 
 			</ul>
