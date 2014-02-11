@@ -2,7 +2,7 @@
 			</main>
 			<footer class="main-footer">
 				<div class="inner">
-					<p>&copy; <a href="mailto:bartekfr@wp.pl">Bartek Fryzowicz</a> 2014. All rights reserved</p>
+					<p>Copyright 2014 by <a href="mailto:bartekfr@wp.pl">Bartek Fryzowicz</a></p>
 					<p>
 						My name is Bartek Fryzowicz. I'm a front-end devloper (and a bit of graphic designer).
 						I specialize in: <strong>HTML5, CSS3 and JavaScript</strong>.<br/>

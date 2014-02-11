@@ -1,6 +1,15 @@
 <?php	include_once 'inc/header.html.php';?>
 		<h1 class="title"><span>Projects I've worked on</span></h1>
 		<section class="projects">
+			<h2 class="company">Some freelance projects</h2>
+			<ul class="projects-list">
+				<li>
+					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/abc">ABC</a>
+				</li>
+
+			</ul>
+		</section>
+		<section class="projects">
 			<h2 class="company"><a target="_blank" href="http://www.roche.pl">Roche Polska</a></h2>
 			<ul class="projects-list">
 				<li>
