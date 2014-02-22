@@ -1,10 +1,26 @@
 <?php	include_once 'inc/header.html.php';?>
-		<h1 class="title"><span>Projects I've worked on</span></h1>
+		<h1 class="title"><span>Portfolio</span></h1>
+		<p>Below you can find some of the projects i've worked on.
+		</p>
+		<section class="projects">
+			<h2 class="company"><a target="_blank" href="http://www.insys.pl/" >Insys</a></h2>
+			<ul class="projects-list">
+				<li>
+					<a target="_blank" href="http://www.insysplay.com/">Insys Play - generic platform for publishing and managing videos</a>
+				</li>
+				<li>
+					<a target="_blank" href="http://onlinetv.inea.pl/">Inea online</a>
+				</li>
+				<li>
+					<a target="_blank" href="http://www.tv-trwam.pl/">Tv Trwam...</a>
+				</li>
+			</ul>
+		</section>
 		<section class="projects">
 			<h2 class="company">Some freelance projects</h2>
 			<ul class="projects-list">
 				<li>
-					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/nas">NaS</a>
+					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/nas">a never used template;)</a>
 				</li>
 
 			</ul>
@@ -12,6 +28,10 @@
 		<section class="projects">
 			<h2 class="company"><a target="_blank" href="http://www.roche.pl">Roche Polska</a></h2>
 			<ul class="projects-list">
+				<li>
+					<a  href="#">Skin Builder - JS application for creating template skins by selecting elements and setting CSS properties </a>
+
+				</li>
 				<li>
 					<a target="_blank" href="http://www.rocheoncology.nl">Roche Oncology</a>
 					<span>Zakres obowiązków: HTML5, CSS3, JavaScript (utrzymanie, modyfikacje)</span>
