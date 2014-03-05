@@ -121,10 +121,7 @@ e-mail: bfryzowicz@gmail.com
 				var x, y;
 				ctx.fillStyle = settings.color;
 
-				if(data.constructor === Object) {
-					ctx.fillRect (fullWidth * i + realX0, realY0 - val, colWidth, val);
-				} else if (data.constructor === Array) {
-
+				if (Object.prototype.toString.call( data ) === '[object Array]' ) {
 					x = i * fullWidth + realX0;
 					y = realY0 - val;
 					ctx.beginPath();
@@ -138,7 +135,8 @@ e-mail: bfryzowicz@gmail.com
 					ctx.closePath();
 					prevVal = y;
 					prevStep = x;
-
+				} else {
+					ctx.fillRect (fullWidth * i + realX0, realY0 - val, colWidth, val);
 				}
 
 			}
@@ -165,7 +163,8 @@ var createExcel;
 		this.error= '';
 		this.errorBtn = $('.error');
 
-		$(document).off('.excel');
+		var $document = $(document);
+		$document.off('.excel');
 		$this.addRowButton.on('click', function(){
 			var lastRow = $('tr:last-child', $this.table);
 			var rowNumber = $('tr', $this.table).size();
@@ -193,13 +192,13 @@ var createExcel;
 			$this.error = '';
 		});
 
-		$(document).on('keydown.excel',  function(e) {
+		$document.on('keydown.excel',  function(e) {
 			if(e.which === 17) {
 				$this.ctrlPressed = true;
 			}
 		});
 
-		$(document).on('keyup.excel',  function(e) {
+		$document.on('keyup.excel',  function(e) {
 			if(e.which === 17) {
 				$this.selectedInputs = $('input.active', $this.table);
 				$this.ctrlPressed = false;
