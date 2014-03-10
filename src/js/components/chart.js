@@ -112,6 +112,8 @@ e-mail: bfryzowicz@gmail.com
 			//G_vmlCanvasManager.initElement(canvas);
 
 			var ctx = canvas[0].getContext('2d');
+			//translate by fractional pixels to draw sharp 1px width axis
+			ctx.translate(0.5, 0.5);
 			var prevStep = realX0,
 				prevVal = realY0 - scaleValues[0];
 
@@ -302,13 +304,7 @@ var createExcel;
 if($('.excelTable').length) {
 	var grid = new createExcel('.excelTable');
 	$('.draw').on('click', function(){
-		try{
-			$('#chart').chart(grid.dataFinal, {color: "#595959"});
-		}
-		catch(e) {
-			var error = 'Ups, there is an error: ' + e.name + '<br/>';
-			$('#error').html(error);
-		}
+		$('#chart').chart(grid.dataFinal, {color: "#595959"});
 	});
 }
 
