@@ -44,8 +44,8 @@ e-mail: bfryzowicz@gmail.com
 
 		function drawAxis (context) {
 			var strokeWidth = 1;
-			var x0 = realX0 ;
-			var y0 = realY0 ;
+			var x0 = realX0 + 0.5 ;
+			var y0 = realY0 + 0.5;
 			context.strokeStyle = "#000";
 			context.lineWidth = strokeWidth;
 
@@ -113,7 +113,7 @@ e-mail: bfryzowicz@gmail.com
 
 			var ctx = canvas[0].getContext('2d');
 			//translate by fractional pixels to draw sharp 1px width axis
-			ctx.translate(0.5, 0.5);
+			//ctx.translate(0.5, 0.5);
 			var prevStep = realX0,
 				prevVal = realY0 - scaleValues[0];
 
