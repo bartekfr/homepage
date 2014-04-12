@@ -4,7 +4,7 @@
 				<div class="inner">
 					<p>Copyright 2014 by <a href="mailto:bartekfr@wp.pl">Bartek Fryzowicz</a></p>
 					<p>
-						My name is Bartek Fryzowicz. I'm a front-end devloper (and a bit of graphic designer).
+						My name is Bartek Fryzowicz. I'm a front-end devloper (and a bit of a graphic designer).
 						I specialize in: <strong>HTML5, CSS3 and JavaScript</strong>.<br/>
 						I'm especially interested in creating graphics using front-end technologies.<br/>
 						If you have any interesting offers let me know:)

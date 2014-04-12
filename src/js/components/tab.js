@@ -164,7 +164,8 @@
 			type: 'slide'
 		},
 		getNavigation: function() {
-			return this.navItems = $(this.options.tabNavItemSelector, this.element);
+			this.navItems = $(this.options.tabNavItemSelector, this.element);
+			return this.navItems;
 		},
 		setActive: function(i) {
 			this.navItems.eq(i).click();

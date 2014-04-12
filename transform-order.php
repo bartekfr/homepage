@@ -10,7 +10,7 @@
 
 	</p>
 <section class="order">
-	<h1>Rotate x Scale</h1>
+	<h1>Rotate x ScaleX</h1>
 	<h2>multiple transformation functions applied to single element</h2>
 	<div class="c" style="transform: rotate(-45deg) scale(2, 1); transform">rotate x scale</div>
 	<h2>equivalent transformation obtained with nested elements and one transformation function per element </h2>
@@ -25,7 +25,7 @@
 
 
 <section class="order">
-	<h1>Scale x Rotate</h1>
+	<h1>ScaleX x Rotate</h1>
 	<h2>multiple transformation functions applied to single element</h2>
 	<div class="c" style="transform:  scale(2, 1) rotate(-45deg)">scale x rotate</div>
 	<h2>equivalent transformation obtained with nested elements and one transformation function per element </h2>

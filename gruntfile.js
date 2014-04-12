@@ -49,6 +49,7 @@ module.exports = function(grunt){
 				options: {
 					curly: true,
 					eqeqeq: true,
+					loopfunc: true,
 					eqnull: true,
 					browser: true,
 					globals: {
