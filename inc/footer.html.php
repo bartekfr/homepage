@@ -13,6 +13,7 @@
 					<ul>
 						<li><a title="github" href="https://github.com/bartekfr/">Github</a></li>
 						<li><a title="goldenline" href="http://www.goldenline.pl/bartlomiej-fryzowicz/">Goldenline</a></li>
+						<li><a title="linkedin" href="http://www.linkedin.com/pub/bart%C5%82omiej-fryzowicz/94/930/355">Linkedin</a></li>
 						<li><a title="flickr" href="http://www.flickr.com/photos/bartekfr">Flickr</a></li>
 					</ul>
 				</div>
