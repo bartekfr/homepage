@@ -20,9 +20,11 @@
 			<h2 class="company">Some freelance projects</h2>
 			<ul class="projects-list">
 				<li>
-					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/nas">a never used template;)</a>
+					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/colorful">colorful template</a>
 				</li>
-
+				<li>
+					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/company">company template</a>
+				</li>
 			</ul>
 		</section>
 		<section class="projects">
