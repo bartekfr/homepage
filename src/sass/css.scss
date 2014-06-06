@@ -34,8 +34,8 @@ $phoneWidth: 470px;
 	}
 }
 
-@function pxToEm($px) {
-	@return  $px/$baseFontSize * 1em;
+@function pxToEm($px, $context: $baseFontSize) {
+	@return  $px/$context * 1em;
 }
 
 /*Generic styles
