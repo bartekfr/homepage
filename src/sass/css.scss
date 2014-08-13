@@ -134,12 +134,16 @@ body {
 
 .main-menu {
 	@extend %clearfix;
+	display: block;
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 100%;
+	width: 150px;
 	background: lighten(#000, 40%);
-	display: none;
+	ul {
+		display: none;
+	}
 	.item a {
 		display: block;
 		padding: 10px 10px;
@@ -161,10 +165,11 @@ body {
 	}
 }
 
-.menu-panel-visible  {
+.menu-panel-visible {
 	.main-menu {
-		display: block;
-		width: 150px;
+		ul {
+			display: block;
+		}
 	}
 	.wrapper {
 		@include transform(translateX(-150px) translateZ(0));
@@ -180,11 +185,13 @@ body {
 	}
 	.main-menu {
 		display: block;
+		width: auto;
 		position: static;
 		padding-left: 120px;
 		background: none;
 
 		ul {
+			display: block;
 			float: right;
 		}
 		.item {
