@@ -14,6 +14,9 @@
 				<li>
 					<a target="_blank" href="http://www.tv-trwam.pl/">Tv Trwam...</a>
 				</li>
+				<li>
+					<a target="_blank" href="http://www.ninateka.pl/">Ninateka</a>
+				</li>
 			</ul>
 		</section>
 		<section class="projects">
