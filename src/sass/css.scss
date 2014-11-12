@@ -47,6 +47,10 @@ body {
 
 /*Typography
 ----------------------------------------------*/
+html {
+	overflow-x: hidden;
+}
+
 body {
 	font-family: Arial, sans-serif;
 	font-size: $baseFontSize;
@@ -66,6 +70,7 @@ body {
 /*Layout
 ----------------------------------------------*/
 .wrapper {
+	position: relative;
 	transition: -webkit-transform 0.2s;
 	transition: transform 0.2s;
 }
