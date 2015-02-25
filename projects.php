@@ -3,6 +3,17 @@
 		<p>Below you can find some of the projects i've worked on.
 		</p>
 		<section class="projects">
+			<h2 class="company">Some freelance projects</h2>
+			<ul class="projects-list">
+				<li>
+					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/colorful">One-page template</a>
+				</li>
+				<li>
+					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/company">Commercial template</a>
+				</li>
+			</ul>
+		</section>
+		<section class="projects">
 			<h2 class="company"><a target="_blank" href="http://www.insys.pl/" >Insys</a></h2>
 			<ul class="projects-list">
 				<li>
@@ -16,17 +27,6 @@
 				</li>
 				<li>
 					<a target="_blank" href="http://www.ninateka.pl/">Ninateka</a>
-				</li>
-			</ul>
-		</section>
-		<section class="projects">
-			<h2 class="company">Some freelance projects</h2>
-			<ul class="projects-list">
-				<li>
-					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/colorful">colorful template</a>
-				</li>
-				<li>
-					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/company">company template</a>
 				</li>
 			</ul>
 		</section>
