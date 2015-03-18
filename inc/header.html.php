@@ -22,7 +22,7 @@
 				<div class="inner">
 					<h1 id="logo">
 						<a title="home" href="experiments">
-							<img src="img/logo.png" alt="logo" />
+							<img src="img/BF-logo.svg" alt="logo" />
 						</a>
 					</h1>
 					<div id="show-menu">menu</div>

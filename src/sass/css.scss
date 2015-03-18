@@ -103,6 +103,7 @@ body {
 
 #logo  {
 	float: left;
+
 	&:hover {
 		a {
 			//@include transform(scale(1.1));
@@ -119,6 +120,11 @@ body {
 		text-decoration: none;
 		transition: -webkit-transform 1s ease-out;
 		transition: transform 1s ease-out;
+	}
+
+	img {
+		width: 70px;
+		height: 84px;
 	}
 }
 
