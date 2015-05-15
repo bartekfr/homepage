@@ -5,7 +5,7 @@
 			<li>
 				<a class="link" href="selection#experiments">
 					<div>
-						<span class="name">Select search text</span>
+						<span class="name">Highlight search text</span>
 						<span class="description">Selection and Range APIs</span>
 					</div>
 				</a>

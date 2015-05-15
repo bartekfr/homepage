@@ -1,5 +1,5 @@
 <?php	include_once 'inc/header.html.php';?>
-	<h1 class="title"><span>Select search text</span></h1>
+	<h1 class="title"><span>Highlight search text</span></h1>
 	<p>Works in Firefox in Chrome</p>
 	<div class="selection">
 		<form>
