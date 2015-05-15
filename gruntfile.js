@@ -21,7 +21,14 @@ module.exports = function(grunt){
 					preserveComments: 'all'
 				},
 				files: [
-					{src: 'src/js/components/*.js', dest: 'js/scripts.min.js'}
+					{
+						src: [
+							'src/js/components/*.js',
+							'src/js/components/textRange.js',
+						 	'src/js/components/select.js'
+						 ],
+						 dest: 'js/scripts.min.js'
+					}
 				]
 			}
 		},

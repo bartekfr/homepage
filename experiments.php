@@ -3,6 +3,14 @@
 		<h1 class="title"><span>Experiments</span></h1>
 		<ul class="site-list experiments">
 			<li>
+				<a class="link" href="selection#experiments">
+					<div>
+						<span class="name">Select search text</span>
+						<span class="description">Selection and Range APIs</span>
+					</div>
+				</a>
+			</li>
+			<li>
 				<a class="link" href="css-power#experiments">
 					<div>
 						<span class="name">Power of CSS3</span>
