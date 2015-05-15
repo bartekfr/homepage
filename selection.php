@@ -4,7 +4,9 @@
 	<div class="selection">
 		<form>
 			<input type="text" id="textToFind" />
-			<input type="button" value="Find" id="find" />
+			<span class="buttons">
+				<input type="button" value="find" id="find" />
+			</span>
 			<a href="#" id="next">Next</a>
 		</form>
 		<div class="lorem-text" id="root">
