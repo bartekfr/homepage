@@ -1,6 +1,6 @@
 <?php	include_once 'inc/header.html.php';?>
 	<h1 class="title"><span>Highlight search text</span></h1>
-	<p>Works in Firefox in Chrome</p>
+	<p>Works in Firefox and Chrome</p>
 	<div class="selection">
 		<form>
 			<input type="text" id="textToFind" />
