@@ -3,6 +3,15 @@
 		<p>Below you can find some of the projects i've worked on.
 		</p>
 		<section class="projects">
+			<h2 class="company"><a target="_blank" href="http://www.roche.pl">Roche</a></h2>
+			<ul class="projects-list">
+				<li>
+					<a target="_blank" href="http://www.rocheinteract.com.au">Roche Interact RWD</a>
+
+				</li>
+			</ul>
+		</section>
+		<section class="projects">
 			<h2 class="company">Some freelance projects</h2>
 			<ul class="projects-list">
 				<li>
@@ -33,6 +42,10 @@
 		<section class="projects">
 			<h2 class="company"><a target="_blank" href="http://www.roche.pl">Roche Polska</a></h2>
 			<ul class="projects-list">
+				<li>
+					<a target="_blank" href="http://www.rocheinteract.com.au">Roche Interact RWD</a>
+
+				</li>
 				<li>
 					<a  href="#">Skin Builder - JS application for creating template skins by selecting elements and setting CSS properties </a>
 
