@@ -15,6 +15,9 @@
 			<h2 class="company">Some freelance projects</h2>
 			<ul class="projects-list">
 				<li>
+					<a target="_blank" href="http://www.trilac.pl/">Trilac</a>
+				</li>
+				<li>
 					<a target="_blank" href="http://www.bfryzowicz.pl/project-pages/colorful">One-page template</a>
 				</li>
 				<li>
