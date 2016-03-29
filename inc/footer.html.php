@@ -2,12 +2,13 @@
 			</main>
 			<footer class="main-footer">
 				<div class="inner">
-					<p>Copyright 2014 by <a href="mailto:bartekfr@wp.pl">Bartek Fryzowicz</a></p>
+					<p>Copyright 2016 by <a href="mailto:bartekfr@wp.pl">Bartek Fryzowicz</a></p>
 					<p>
-						My name is Bartek Fryzowicz. I'm a front-end devloper (and a bit of a graphic designer).
-						I specialize in: <strong>HTML5, CSS3 and JavaScript</strong>.<br/>
+						My name is Bartek Fryzowicz. I'm a front-end devloper so I specialize in: <strong>JavaScript, HTML5, CSS3</strong>.<br/>
 						I'm especially interested in creating graphics using front-end technologies.<br/>
-						If you have any interesting offers let me know:)
+						Besides programming my interests also include <a href="https://en.wikipedia.org/wiki/Cosmology">cosmology</a>, philosphy and history.<br/>
+						I don't have a facebook account.<br/>
+						If you have any interesting offers please let me know :)
 					</p>
 					Find me also on:
 					<ul>
