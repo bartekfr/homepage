@@ -62,7 +62,7 @@ var Select = (function(window) {
 	}
 })(window);
 
-//initialization TOTO: move to separate file
+//TODO: move to separate file
 (function(window, document) {
 	"use stric";
 	//init

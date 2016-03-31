@@ -15,7 +15,7 @@
 			</section>
 			<section>
 				<p>
-				<span>lorem apple pie this is apple pie</span></p><p>he is another	<strong>apple pie</strong>
+				<span>lorem apple pie this is apple pie</span></p><p>he is another <strong>apple pie</strong>
 				</p>
 			</section>
 			<section>
