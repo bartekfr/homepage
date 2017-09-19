@@ -70,13 +70,19 @@ var Select = (function(window) {
 	if(!rootEl) {
 		return false;
 	}
+	var formEl = document.getElementById("form");
 	var nextBtn = document.getElementById("next");
 	var textToFind = document.getElementById("textToFind");
 	var findBtn = document.getElementById("find");
 	var text;
 	var select = Select(rootEl);
 
-	findBtn.addEventListener("click", function() {
+	formEl.addEventListener("submit", function(e) {
+		e.preventDefault();
+	}, false);
+
+	findBtn.addEventListener("click", function(e) {
+		e.preventDefault();
 		text = textToFind.value;
 		select.setText(text);
 	}, false);

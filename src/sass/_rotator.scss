@@ -6,7 +6,8 @@
 	margin: auto;
 	margin-bottom: 20px;
 	position: relative;
-	@include pie-clearfix;
+	@extend %clearfix;
+
 	.rotator {
 		position: relative;
 		overflow: hidden;
@@ -25,7 +26,7 @@
 		background-repeat: no-repeat;
 		position: absolute;
 		top: 0;
-	 	@include transform(translate3d(0,0,0));
+	 	transform: translate3d(0,0,0);
 	}
 	.menu {
 		padding: 10px 0;

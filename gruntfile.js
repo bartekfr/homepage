@@ -12,7 +12,7 @@ module.exports = function(grunt){
 			},
 			csscommon: {
 				files: ['src/sass/*.scss'],
-				tasks: ['compass:common']
+				tasks: ['sass']
 			}
 		},
 		uglify: {
@@ -32,13 +32,14 @@ module.exports = function(grunt){
 				]
 			}
 		},
-		compass: {
-			common: {
-				options: {
-					sassDir: "src/sass",
-					cssDir: "css",
-					outputStyle: "compressed",
-					noLineComments: true
+		sass: {
+			options: {
+				outputStyle: "compressed",
+				noLineComments: true
+			},
+			dist: {
+				files: {
+					'css/css.css': 'src/sass/css.scss'
 				}
 			}
 		},
@@ -66,11 +67,10 @@ module.exports = function(grunt){
 				src: ['src/js/components']
 			}
 		}
-
 	});
 
 	grunt.registerTask('default', ['uglify', 'buildcss', 'copy']);
-	grunt.registerTask('buildcss',  ['compass:common']);
+	grunt.registerTask('buildcss',  ['sass']);
 
 	//grunt.loadNpmTasks('grunt-contrib-compass');
 }

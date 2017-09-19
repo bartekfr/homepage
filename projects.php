@@ -2,6 +2,30 @@
 		<h1 class="title"><span>Portfolio</span></h1>
 		<p>Below you can find some of the projects i've worked on.
 		</p>
+
+		<section class="projects">
+			<h2 class="company"><a target="_blank" href="http://www.appnroll.com">App'n'roll</a></h2>
+			<ul class="projects-list">
+				<li>
+					<a target="_blank" href="http://www.matmatic.pl">Matmatic (JS)</a>
+				</li>
+				<li>
+					<a href="#">KPI Cloud (JS, CSS3)</a>
+				</li>
+				<li>
+					<a target="_blank" href="http://www.znajdzzarzadce.pl/#/home">ZnajdzZarzadce (JS)</a>
+				</li>
+			</ul>
+		</section>
+		<section class="projects">
+			<h2 class="company"><a target="_blank" href="http://www.proofhq.com">ProofHQ</a></h2>
+			<ul class="projects-list">
+				<li>
+					<a target="_blank" href="https://www.workfront.com/work-management/review-and-approve/">ProofHQ</a>
+				</li>
+
+			</ul>
+		</section>
 		<section class="projects">
 			<h2 class="company"><a target="_blank" href="http://www.roche.pl">Roche</a></h2>
 			<ul class="projects-list">

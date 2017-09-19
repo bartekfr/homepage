@@ -2,10 +2,10 @@
 	<h1 class="title"><span>Highlight search text</span></h1>
 	<p>Works in Firefox and Chrome</p>
 	<div class="selection">
-		<form>
+		<form id="form">
 			<input type="text" id="textToFind" />
 			<span class="buttons">
-				<input type="button" value="find" id="find" />
+				<input type="submit" value="find" id="find" />
 			</span>
 			<a href="#" id="next">Next</a>
 		</form>

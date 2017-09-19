@@ -21,15 +21,17 @@
 			<header class="main-header" role="banner">
 				<div class="inner">
 					<h1 id="logo">
-						<a title="home" href="experiments">
+						<a title="home" href="/">
 							<img src="img/BF-logo.svg" alt="logo" />
 						</a>
 					</h1>
 					<div id="show-menu">menu</div>
+					<?php $activePage = basename($_SERVER['PHP_SELF'], ".php");?>
+
 					<nav class="main-menu" role="navigation">
 						<ul >
-							<li class="item"><a id="portfolio" href="projects#portfolio">Portfolio</a></li>
-							<li class="item"><a id="experiments" href="experiments#experiments">Experiments</a></li>
+							<li class="item"><a id="experiments" class="<?php echo ($activePage == 'index') ? 'active': ''; ?>" href="/">Experiments</a></li>
+							<li class="item"><a id="portfolio" class="<?php echo ($activePage == 'projects') ? 'active': ''; ?>" href="projects.php">Portfolio</a></li>
 						</ul>
 					</nav>
 				</div>

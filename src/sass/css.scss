@@ -3,11 +3,17 @@
 	e-mail: bfryzowicz@gmail.com
 	All copyrights reserved
 **/
-@import "compass/reset";
-@import "compass/css3/box-sizing";
-@import "compass/css3/transform";
-@import "compass/css3/images";
-@import "compass/typography/lists";
+
+/*Reset
+----------------------------------------------*/
+* {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+}
 
 
 /*Mixins and functions
@@ -21,7 +27,11 @@ $tabletWidth: 768px;
 $phoneWidth: 470px;
 
 %clearfix {
-	@include pie-clearfix;
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
 }
 
 @mixin media($breakpoint) {
@@ -37,7 +47,7 @@ $phoneWidth: 470px;
 /*Generic styles
 ----------------------------------------------*/
 * {
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 }
 
 body {
@@ -61,6 +71,7 @@ body {
 .title {
 	font-family: 'Asap', Arial, sans-serif;
 	font-size: pxToEm(26px);
+	font-weight: normal;
 }
 
 .main-menu {
@@ -152,12 +163,14 @@ strong {
 	left: 100%;
 	width: 150px;
 	background: lighten(#000, 40%);
+
 	ul {
 		display: none;
 	}
+
 	.item a {
 		display: block;
-		padding: 10px 10px;
+		padding: 10px 20px;
 		height: 70px;
 		color: #fff;
 		font-size: 16px;
@@ -166,11 +179,7 @@ strong {
 		text-decoration: none;
 		transition: background-color 1s, border-width 0.3s;
 
-		&:hover, &:focus {
-			background-color: darken($blue, 10%);
-		}
-		//because IE skips selector doesn't understand
-		&:target {
+		&.active, &:hover, &:focus {
 			background-color: darken($blue, 10%);
 		}
 	}
@@ -183,7 +192,7 @@ strong {
 		}
 	}
 	.wrapper {
-		@include transform(translateX(-150px) translateZ(0));
+		transform: translateX(-150px) translateZ(0);
 	}
 	.no-csstransforms & .wrapper {
 		left: -150px;
@@ -204,16 +213,17 @@ strong {
 		ul {
 			display: block;
 			float: right;
+			font-size: 0; //remve horizontal space between list items
 		}
+
 		.item {
-			@include horizontal-list-item(0);
+			display: inline-block;
+
 			a {
 				padding: 10px 20px;
 				font-size: 24px;
-				&:hover, &:focus {
-					border-bottom: 10px solid lighten(#000, 20%);
-				}
-				&:target {
+
+				&.active, &:hover, &:focus {
 					border-bottom: 10px solid lighten(#000, 20%);
 				}
 			}
@@ -295,7 +305,7 @@ $boxHeight: 100px;
 		width: 100%;
 		top: 0;
 		left: 0;
-		@include perspective(1000px);
+		perspective: 1000px;
 		//@include transform-style(preserve-3d);
 	}
 	.name, .description {
@@ -308,25 +318,25 @@ $boxHeight: 100px;
 		color: #fff;
 		transition: -webkit-transform 0.5s;
 		transition: transform 0.5s;
-		@include backface-visibility();
+		backface-visibility: hidden;
 	}
 	.name {
-		@include transform-origin(50%, 50%, -$boxHeight/2);
+		transform-origin: 50% 50% #{-$boxHeight/2};
 		background: lighten(#000, 40%);
 	}
 	.description {
-		@include transform-origin(50%, 50%, -$boxHeight/2);
-		@include transform(translateY(-$boxHeight)  rotateX(-90deg));
+		transform-origin: 50% 50% #{-$boxHeight/2};
+		transform: translateY(-$boxHeight)  rotateX(-90deg);
 		background: $darkenBlue;
 	}
 
 	.link:hover,
 	.link:focus {
 		.name {
-			@include transform(rotateX(90deg));
+			transform: rotateX(90deg);
 		}
 		.description {
-			@include transform(translateY(-100px)  rotateX(0));
+			transform: translateY(-100px)  rotateX(0);
 		}
 
 	}
@@ -387,19 +397,27 @@ $boxHeight: 100px;
 	background-color: $blue;
 	background-image: linear-gradient($blueOp 50%, $blue);
 	transition: background-color 1s;
+
 	p {
 		padding: 10px 0;
 
 	}
+
 	a {
 		color: #fff;
 		font-weight: bold;
 		text-decoration: none;
 	}
+
 	ul {
-		@include horizontal-list;
 		padding: 5px 0;
+
+		li {
+			display: inline-block;
+			padding: 4px 5px 4px 0;
+		}
 	}
+
 	&:hover {
 		background-color: $darkenBlue;
 	}
