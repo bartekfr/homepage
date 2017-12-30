@@ -31,7 +31,7 @@
 					<nav class="main-menu" role="navigation">
 						<ul >
 							<li class="item"><a id="experiments" class="<?php echo ($activePage == 'index') ? 'active': ''; ?>" href="/">Experiments</a></li>
-							<li class="item"><a id="portfolio" class="<?php echo ($activePage == 'projects') ? 'active': ''; ?>" href="projects.php">Portfolio</a></li>
+							<li class="item"><a id="portfolio" class="<?php echo ($activePage == 'projects') ? 'active': ''; ?>" href="projects">Portfolio</a></li>
 						</ul>
 					</nav>
 				</div>
